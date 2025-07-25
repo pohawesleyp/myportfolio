@@ -25,10 +25,20 @@ const Hero = () => {
     height: "100vh",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.up("xs")]: {
+      // <= mobile
+      // backgroundColor: "#814ea3",
+      paddingTop: "100px",
+    },
+    [theme.breakpoints.up("md")]: {
+      // >= mobile
+      // backgroundColor: "#020336",
+      paddingTop: "0",
+    },
   }));
 
   const StyledImg = styled("img")(({ theme }) => ({
-    width: "80%",
+    width: "75%",
     borderRadius: "50%",
     border: `0.1rem solid ${theme.palette.primary.contrastText}`,
   }));
@@ -77,7 +87,7 @@ const Hero = () => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <StyledButton>
+                  <StyledButton onClick={() => console.log("download")}>
                     <DownloadIcon />
                     <Typography>Download CV</Typography>
                   </StyledButton>
@@ -88,7 +98,7 @@ const Hero = () => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <StyledButton>
+                  <StyledButton onClick={() => console.log("contact")}>
                     <MailIcon />
                     <Typography>Contact Me</Typography>
                   </StyledButton>
