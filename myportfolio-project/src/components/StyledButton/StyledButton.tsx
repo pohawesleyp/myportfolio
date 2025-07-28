@@ -20,7 +20,7 @@ const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick }) => {
     border: `0.3rem solid ${theme.palette.primary.contrastText}`,
     color: theme.palette.primary.contrastText,
     "&:hover": {
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: "#2e5593",
     },
   }));
 

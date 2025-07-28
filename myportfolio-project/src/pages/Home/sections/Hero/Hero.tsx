@@ -29,12 +29,18 @@ const Hero = () => {
     [theme.breakpoints.up("xs")]: {
       // <= mobile
       // backgroundColor: "#814ea3",
+      // display: "block",
+      // padding: "20px",
       paddingTop: "100px",
+      // paddingBottom: "40px",
     },
     [theme.breakpoints.up("md")]: {
       // >= mobile
       // backgroundColor: "#020336",
+      // display: "flex",
+      // alignItems: "center",
       paddingTop: "0",
+      // height: "100vh",
     },
   }));
 
