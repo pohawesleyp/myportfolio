@@ -7,6 +7,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import MailIcon from "@mui/icons-material/Mail";
 import StyledButton from "../../../../components/StyledButton/StyledButton";
 import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
+import Typewriter from "../../../../components/Typewriter/Typewriter";
 
 // const Item = styled(Paper)(({ theme }) => ({
 //   backgroundColor: "#fff",
@@ -49,11 +50,11 @@ const Hero = () => {
         <Container maxWidth="lg">
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, md: 5 }}>
-              <Box position="relative">
+              <Box position="relative" pb={3}>
                 <Box position="absolute" width={"150%"} top={-100} right={0}>
                   <AnimatedBackground />
                 </Box>
-                <Box position="relative" textAlign="center">
+                <Box textAlign="center">
                   <StyledImg src={wesleyPerfil} />
                 </Box>
               </Box>
@@ -63,17 +64,16 @@ const Hero = () => {
                 color="primary.contrastText"
                 variant="h1"
                 textAlign="center"
+                pb={2}
               >
                 Wesley Amaro
               </Typography>
-              <Typography
-                color="primary.contrastText"
+              <Typewriter
+                text="I'm a Front-End Developer"
+                delay={115}
                 variant="h2"
-                textAlign="center"
-                paddingBottom={2}
-              >
-                I'm a Front-End Developer
-              </Typography>
+                color="white"
+              ></Typewriter>
 
               <Grid
                 container

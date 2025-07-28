@@ -9,17 +9,18 @@ interface StyledButtonProps {
 const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick }) => {
   const StyledButton = styled("button")(({ theme }) => ({
     backgroundColor: "transparent",
-    border: `0.3rem solid ${theme.palette.primary.contrastText}`,
-    borderRadius: "0.9rem",
-    padding: "1rem 1rem",
-    width: "100%",
-    color: theme.palette.primary.contrastText,
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
+    verticalAlign: "middle",
     gap: "1rem",
+    borderRadius: "0.9rem",
+    padding: "1rem 1rem",
+    width: "100%",
+    border: `0.3rem solid ${theme.palette.primary.contrastText}`,
+    color: theme.palette.primary.contrastText,
     "&:hover": {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.light,
     },
   }));
 
