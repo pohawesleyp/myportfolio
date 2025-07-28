@@ -1,9 +1,11 @@
-import Home from "../src/pages/Home/Home";
+import NavBar from "./components/NavBar/NavBar";
+import Hero from "./pages/Home/sections/Hero/Hero";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
-      <Home />
+      <NavBar />
+      <Hero />
     </>
   );
 };
