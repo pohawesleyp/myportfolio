@@ -55,7 +55,7 @@ export const AnimatedBackground = () => {
           transform="translate(-295.027 -193.118)"
           rx="1.07306"
           ry="1.07433"
-          fill="#46737"
+          fill="#0cb4ec337"
         >
           <animateMotion
             dur="5s"
@@ -86,7 +86,7 @@ export const AnimatedBackground = () => {
           rx="1.07433"
           ry="1.07306"
           transform="translate(-476.525 -363.313) rotate(90 476.525 363.313)"
-          fill="#945DD6"
+          fill="#dd59d2"
         >
           <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
             <mpath xlinkHref="#path_0" />
@@ -107,7 +107,7 @@ export const AnimatedBackground = () => {
           rx="1.07433"
           ry="1.07306"
           transform="translate(-382.164 -155.029) rotate(90 382.164 155.029)"
-          fill="#F46737"
+          fill="#def437"
         >
           <animateMotion
             dur="10s"
@@ -138,7 +138,7 @@ export const AnimatedBackground = () => {
           rx="1.07306"
           ry="1.07433"
           transform="translate(-333.324 -382.691) rotate(-180 333.324 382.691)"
-          fill="#F46737"
+          fill="#bbf437"
         >
           <animateMotion
             dur="5s"
@@ -169,7 +169,7 @@ export const AnimatedBackground = () => {
           rx="1.07306"
           ry="1.07433"
           transform="translate(-165.524 -93.9596)"
-          fill="#F46737"
+          fill="#e34afb"
         >
           <animateMotion
             dur="10s"
