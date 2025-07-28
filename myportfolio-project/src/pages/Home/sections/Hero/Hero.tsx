@@ -57,10 +57,16 @@ const Hero = () => {
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box position="relative" pb={3}>
-                <Box position="absolute" width={"150%"} top={-100} right={0}>
+                <Box
+                  position="absolute"
+                  width={"150%"}
+                  top={-100}
+                  right={0}
+                  sx={{ zIndex: 0 }}
+                >
                   <AnimatedBackground />
                 </Box>
-                <Box textAlign="center">
+                <Box textAlign="center" position="relative" sx={{ zIndex: 1 }}>
                   <StyledImg src={wesleyPerfil} />
                 </Box>
               </Box>
