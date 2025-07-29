@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     transition: "transform 0.3s ease, color 0.3s ease",
     "&:hover": {
       transform: "scale(1.2)",
-      color: "#ffffff", // Ou uma cor específica, se quiser dar contraste
+      color: "#35d8e3", // Ou uma cor específica, se quiser dar contraste
     },
   };
 

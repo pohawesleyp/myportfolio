@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+// import { color } from "@mui/system";
 import type { ReactNode } from "react";
 
 interface StyledButtonProps {
@@ -20,7 +21,10 @@ const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick }) => {
     border: `0.3rem solid ${theme.palette.primary.contrastText}`,
     color: theme.palette.primary.contrastText,
     "&:hover": {
-      backgroundColor: "#2e5593",
+      backgroundColor: "#35d8e3",
+      color: "black",
+      transform: "scale(1.1)",
+      borderRadius: "1rem",
     },
   }));
 
