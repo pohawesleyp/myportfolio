@@ -1,5 +1,6 @@
 import { AppBar, MenuItem, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
+import theme from "../../theme";
 
 const NavBar = () => {
   const StyledTooBar = styled(Toolbar)(({ theme }) => ({
@@ -12,7 +13,7 @@ const NavBar = () => {
     transition: "transform 0.3s ease, color 0.3s ease",
     "&:hover": {
       transform: "scale(1.3)",
-      backgroundColor: "#35d8e3",
+      backgroundColor: `${theme.palette.secondary.main}`,
       color: "black", // Ou uma cor específica, se quiser dar contraste
       borderRadius: "1rem",
     },

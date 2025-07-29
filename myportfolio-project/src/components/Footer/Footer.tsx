@@ -8,6 +8,7 @@ import {
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import theme from "../../theme";
 
 const Footer: React.FC = () => {
   const StyledFooter = styled("footer")(({ theme }) => ({
@@ -21,7 +22,7 @@ const Footer: React.FC = () => {
     transition: "transform 0.3s ease, color 0.3s ease",
     "&:hover": {
       transform: "scale(1.2)",
-      color: "#35d8e3", // Ou uma cor específica, se quiser dar contraste
+      color: `${theme.palette.secondary.main}`, // Ou uma cor específica, se quiser dar contraste
     },
   };
 
@@ -38,7 +39,7 @@ const Footer: React.FC = () => {
           >
             <IconButton
               href="https://github.com/pohawesleyp"
-              target="blank"
+              target="_blank"
               rel="noopener"
               aria-label="GitHub"
               sx={iconButtonStyle}
@@ -47,7 +48,7 @@ const Footer: React.FC = () => {
             </IconButton>
             <IconButton
               href="https://www.linkedin.com/in/wesley-amaro/"
-              target="blank"
+              target="_blank"
               rel="noopener"
               aria-label="Linkedin"
               sx={iconButtonStyle}
@@ -56,7 +57,7 @@ const Footer: React.FC = () => {
             </IconButton>
             <IconButton
               href="mailto:wesley.amaro.1@gmail.com"
-              target="blank"
+              target="_blank"
               rel="noopener"
               aria-label="Gmail"
               sx={iconButtonStyle}

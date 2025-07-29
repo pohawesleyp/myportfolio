@@ -21,7 +21,7 @@ const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick }) => {
     border: `0.3rem solid ${theme.palette.primary.contrastText}`,
     color: theme.palette.primary.contrastText,
     "&:hover": {
-      backgroundColor: "#35d8e3",
+      backgroundColor: `${theme.palette.secondary.main}`,
       color: "black",
       transform: "scale(1.1)",
       borderRadius: "1rem",
