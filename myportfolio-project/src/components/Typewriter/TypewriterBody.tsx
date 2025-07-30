@@ -12,7 +12,7 @@ interface TypewriterProps {
 const TypewriterBody: React.FC<TypewriterProps> = ({
   text,
   delay = 100,
-  variant = "h2",
+  variant = "body1",
   color = "text.primary",
 }) => {
   const [currentText, setCurrentText] = useState("");
