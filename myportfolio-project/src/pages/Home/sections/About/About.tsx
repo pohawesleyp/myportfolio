@@ -3,6 +3,8 @@ import { Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SchoolIcon from "@mui/icons-material/School";
+import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
+import TypewriterBody from "../../../../components/Typewriter/TypewriterBody";
 
 const About: React.FC = () => {
   const StyledAbout = styled("div")(({ theme }) => ({
@@ -36,7 +38,7 @@ const About: React.FC = () => {
   return (
     <>
       <StyledAbout>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <Grid size={{ xs: 10, md: 4 }}>
             <AboutSection>
               <Typography
@@ -48,6 +50,21 @@ const About: React.FC = () => {
                 About Me
               </Typography>
             </AboutSection>
+            <Grid container spacing={2}>
+              <Grid size={{ xs: 12, md: 5 }}>
+                <Box position="relative" pb={3}>
+                  <Box
+                    position="absolute"
+                    width={"150%"}
+                    top={-100}
+                    left={0}
+                    sx={{ zIndex: 0 }}
+                  >
+                    <AnimatedBackground />
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid
             container
@@ -102,36 +119,38 @@ const About: React.FC = () => {
               </StyledCard>
             </Grid>
           </Grid>
-          <AboutSection>
-            <Typography
-              variant="body1"
-              paragraph
-              fontFamily={"serif"}
-              fontSize={17}
-            >
-              Olá! Me chamo Wesley Amaro (mas pode me chamar de Wes). Tenho 28
-              anos, moro em São Paulo e sou estudante de programação e
-              profissional de T.I há quase 6 anos. Ao longo da minha trajetória,
-              atuei em diversas áreas como Desenvolvimento, Suporte Técnico,
-              Assistência em T.I., Atendimento e Liderança. Atualmente, curso
-              Análise e Desenvolvimento de Sistemas (ADS), com foco em Front-End
-              e Full-Stack. Tenho habilidades e certificações em tecnologias web
-              como HTML, CSS, JavaScript, TypeScript, Node.js, React, Tailwind,
-              Sass, Material UI e Figma. Também estou expandindo minha base Full
-              Stack com Python e SQL, além de usar GitHub no meu dia a dia.
-              Tenho ainda conhecimento introdutório em linguagens como Java, C,
-              C++ e C#. Soma-se a isso mais de 10 anos de experiência no mercado
-              de trabalho, sendo 6 deles dedicados à área de tecnologia. Nesse
-              tempo, desenvolvi habilidades sólidas de organização, comunicação,
-              resolução de problemas e foco em resultados. Durante esse período,
-              contribuí para o crescimento da Niu Fibra, uma empresa júnior da
-              cidade de Guarujá que hoje integra o grupo Alloha Fibra. Fui
-              responsável por otimizar processos e melhorar a experiência do
-              cliente com ferramentas como Excel, PowerPoint, Teams, 3CX,
-              AnyDesk, além de oferecer suporte a softwares e hardwares
-              internos.
-            </Typography>
-          </AboutSection>
+
+          <Grid size={{ xs: 12, md: 7 }}>
+            <AboutSection>
+              <TypewriterBody
+                text=" Olá! Me chamo Wesley Amaro (mas pode me chamar de Wes). Tenho 28
+                anos, moro em São Paulo e sou estudante de programação e
+                profissional de T.I há quase 6 anos. Ao longo da minha
+                trajetória, atuei em diversas áreas como Desenvolvimento,
+                Suporte Técnico, Assistência em T.I., Atendimento e Liderança.
+                Atualmente, curso Análise e Desenvolvimento de Sistemas (ADS),
+                com foco em Front-End e Full-Stack. Tenho habilidades e
+                certificações em tecnologias web como HTML, CSS, JavaScript,
+                TypeScript, Node.js, React, Tailwind, Sass, Material UI e Figma.
+                Também estou expandindo minha base Full Stack com Python e SQL,
+                além de usar GitHub no meu dia a dia. Tenho ainda conhecimento
+                introdutório em linguagens como Java, C, C++ e C#. Soma-se a
+                isso mais de 10 anos de experiência no mercado de trabalho,
+                sendo 6 deles dedicados à área de tecnologia. Nesse tempo,
+                desenvolvi habilidades sólidas de organização, comunicação,
+                resolução de problemas e foco em resultados. Durante esse
+                período, contribuí para o crescimento da Niu Fibra, uma empresa
+                júnior da cidade de Guarujá que hoje integra o grupo Alloha
+                Fibra. Fui responsável por otimizar processos e melhorar a
+                experiência do cliente com ferramentas como Excel, PowerPoint,
+                Teams, 3CX, AnyDesk, além de oferecer suporte a softwares e
+                hardwares internos."
+                delay={40}
+                variant="body1"
+                color="white"
+              ></TypewriterBody>
+            </AboutSection>
+          </Grid>
 
           <AboutSection>
             <Typography
@@ -150,6 +169,8 @@ const About: React.FC = () => {
               fontFamily={"serif"}
               fontWeight="bold"
               fontSize={16}
+              textAlign="center"
+              flexDirection="column"
             >
               Institution: Ada Tech (Brazil)
               <br />
