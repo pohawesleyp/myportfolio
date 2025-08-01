@@ -30,11 +30,16 @@ const AboutMain: React.FC = () => {
             <Box position="relative" pb={3}>
               <Box
                 position="absolute"
-                width={"100%"}
-                top={-100}
-                left={800}
+                width="46rem"
+                height={"100%"}
+                top={0}
+                left="80%"
                 sx={{
                   zIndex: 0,
+                  transform: {
+                    xs: "translateX(calc(-13rem + -5vw))",
+                    md: "translateX(calc(1rem + 1vw))",
+                  },
                 }}
               >
                 <AnimatedBackground />
