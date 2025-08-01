@@ -5,7 +5,7 @@ const AboutHeader: React.FC = () => {
     <>
       <Box mb={4} textAlign="center">
         <Typography variant="h2" fontStyle="italic" fontWeight="bold">
-          About Me
+          About Me 👨🏽‍💻
         </Typography>
       </Box>
     </>

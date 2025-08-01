@@ -4,7 +4,7 @@ import { Box } from "@mui/system";
 import TypewriterBody from "../../../../components/Typewriter/TypewriterBody";
 
 const AboutSection = styled(Box)(({ theme }) => ({
-  marginBottom: theme.spacing(4),
+  marginBottom: theme.spacing(1),
   textAlign: "left",
 }));
 
@@ -20,7 +20,7 @@ const AboutCouses: React.FC = () => {
             fontWeight="bold"
             textAlign="center"
           >
-            Courses with Certificates
+            Courses with Certificates ⭐
           </Typography>
 
           <TypewriterBody
