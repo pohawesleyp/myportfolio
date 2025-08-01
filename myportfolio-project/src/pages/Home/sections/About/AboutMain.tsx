@@ -13,9 +13,11 @@ const StyledAbout = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   color: theme.palette.primary.contrastText,
+  overflow: "hidden",
+  maxWidth: "150%",
 }));
 
-const About: React.FC = () => {
+const AboutMain: React.FC = () => {
   return (
     <>
       <StyledAbout>
@@ -24,20 +26,20 @@ const About: React.FC = () => {
           <AboutHeader />
           <AboutCards />
 
-          <Grid container spacing={2}>
-            <Grid size={{ xs: 12, md: 5 }}>
-              <Box position="relative" pb={3}>
-                <Box
-                  position="absolute"
-                  width={"150%"}
-                  top={-100}
-                  left={0}
-                  sx={{ zIndex: 0 }}
-                >
-                  <AnimatedBackground />
-                </Box>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Box position="relative" pb={3}>
+              <Box
+                position="absolute"
+                width={"100%"}
+                top={-100}
+                left={800}
+                sx={{
+                  zIndex: 0,
+                }}
+              >
+                <AnimatedBackground />
               </Box>
-            </Grid>
+            </Box>
           </Grid>
 
           <AboutDescription />
@@ -48,4 +50,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default AboutMain;
