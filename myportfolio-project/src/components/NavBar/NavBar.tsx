@@ -14,8 +14,9 @@ const NavBar = () => {
     "&:hover": {
       transform: "scale(1.3)",
       backgroundColor: `${theme.palette.secondary.main}`,
-      color: "black", // Ou uma cor específica, se quiser dar contraste
+      color: "#504e4e", // Ou uma cor específica, se quiser dar contraste
       borderRadius: "1rem",
+      fontWeight: "bold",
     },
   };
 
