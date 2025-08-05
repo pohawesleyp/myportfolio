@@ -14,6 +14,7 @@ import {
   Language,
   Construction,
 } from "@mui/icons-material";
+import { Element } from "react-scroll";
 // import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 
 const skills = [
@@ -33,7 +34,7 @@ const skills = [
   { name: "Spanish", level: "Intermediary", icon: Language },
 ];
 
-const StyledAbout = styled("div")(({ theme }) => ({
+const StyledSkills = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
   color: theme.palette.primary.contrastText,
   paddingBottom: "4rem",
@@ -68,51 +69,53 @@ const StyledCardSkill = styled(Card)(({ theme }) => ({
 const AboutSkills: React.FC = () => {
   return (
     <>
-      <StyledAbout>
-        <Container maxWidth="lg">
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <Typography
-              variant="h3"
-              textAlign={"center"}
-              fontStyle={"italic"}
-              fontWeight={"bolder"}
-              gutterBottom
-              paddingBottom={4}
-              paddingTop={4}
-              gap={2}
-            >
-              My Skills 🚀
-            </Typography>
-          </Grid>
-          <Grid container spacing={2} justifyContent={"center"}>
-            {skills.map((skills, index) => (
-              <Grid
-                key={index}
-                alignItems={"center"}
-                size={{ xs: 12, sm: 6, md: 3 }}
+      <Element name="skills">
+        <StyledSkills id="skills" tabIndex={-1} aria-labelledby="about-title">
+          <Container maxWidth="lg">
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+              <Typography
+                variant="h3"
+                textAlign={"center"}
+                fontStyle={"italic"}
+                fontWeight={"bolder"}
+                gutterBottom
+                paddingBottom={4}
+                paddingTop={4}
+                gap={2}
               >
-                <StyledCardSkill variant="elevation">
-                  <StarBorderOutlined />
+                My Skills 🚀
+              </Typography>
+            </Grid>
+            <Grid container spacing={2} justifyContent={"center"}>
+              {skills.map((skills, index) => (
+                <Grid
+                  key={index}
+                  alignItems={"center"}
+                  size={{ xs: 12, sm: 6, md: 3 }}
+                >
+                  <StyledCardSkill variant="elevation">
+                    <StarBorderOutlined />
 
-                  <CardContent>
-                    <Typography
-                      variant="h6"
-                      textAlign={"center"}
-                      fontWeight={"bold"}
-                    >
-                      {skills.name}
-                    </Typography>
+                    <CardContent>
+                      <Typography
+                        variant="h6"
+                        textAlign={"center"}
+                        fontWeight={"bold"}
+                      >
+                        {skills.name}
+                      </Typography>
 
-                    <Typography variant="h6" textAlign={"center"}>
-                      {skills.level}
-                    </Typography>
-                  </CardContent>
-                </StyledCardSkill>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </StyledAbout>
+                      <Typography variant="h6" textAlign={"center"}>
+                        {skills.level}
+                      </Typography>
+                    </CardContent>
+                  </StyledCardSkill>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </StyledSkills>
+      </Element>
     </>
   );
 };
