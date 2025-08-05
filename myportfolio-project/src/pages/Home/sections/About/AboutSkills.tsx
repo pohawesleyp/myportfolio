@@ -81,7 +81,6 @@ const AboutSkills: React.FC = () => {
                 gutterBottom
                 paddingBottom={4}
                 paddingTop={4}
-                gap={2}
               >
                 My Skills 🚀
               </Typography>
