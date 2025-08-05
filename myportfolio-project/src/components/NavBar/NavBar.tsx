@@ -1,32 +1,74 @@
 import { AppBar, MenuItem, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
 import theme from "../../theme";
+import { Link as ScrollLink } from "react-scroll";
 
-const NavBar = () => {
-  const StyledTooBar = styled(Toolbar)(({ theme }) => ({
-    display: "flex",
-    justifyContent: "space-evenly",
-    backgroundColor: theme.palette.primary.main,
-  }));
+const StyledTooBar = styled(Toolbar)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-evenly",
+  backgroundColor: theme.palette.primary.main,
+}));
 
-  const StyledIconNavBar = {
-    transition: "transform 0.3s ease, color 0.3s ease",
-    "&:hover": {
-      transform: "scale(1.3)",
-      backgroundColor: `${theme.palette.secondary.main}`,
-      color: "#504e4e", // Ou uma cor específica, se quiser dar contraste
-      borderRadius: "1rem",
-      fontWeight: "bold",
-    },
+const StyledIconNavBar = {
+  transition: "transform 0.3s ease, color 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.3)",
+    backgroundColor: `${theme.palette.secondary.main}`,
+    color: "#504e4e", // Ou uma cor específica, se quiser dar contraste
+    borderRadius: "1rem",
+    fontWeight: "bold",
+  },
+};
+
+const NAV_HEIGHT = 72;
+const DURATION = 500;
+
+const NavBar: React.FC = () => {
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const handleSetActive = (name: string) => {
+    // quando o link vira ativo, dá foco na seção (acessibilidade)
+    const el = document.getElementById(name);
+    if (el) el.focus({ preventScroll: true });
   };
 
   return (
     <>
       <AppBar position="absolute">
         <StyledTooBar>
-          <MenuItem sx={StyledIconNavBar}>About</MenuItem>
-          <MenuItem sx={StyledIconNavBar}>Skills</MenuItem>
-          <MenuItem sx={StyledIconNavBar}>Projects</MenuItem>
+          <ScrollLink
+            to="about"
+            spy={true}
+            smooth={!prefersReducedMotion}
+            offset={-NAV_HEIGHT}
+            duration={DURATION}
+            onSetActive={() => handleSetActive("about")}
+          >
+            <MenuItem sx={StyledIconNavBar}>About</MenuItem>
+          </ScrollLink>
+          <ScrollLink
+            to="skills"
+            spy={true}
+            smooth={!prefersReducedMotion}
+            offset={-NAV_HEIGHT}
+            duration={DURATION}
+            onSetActive={() => handleSetActive("skills")}
+          >
+            <MenuItem sx={StyledIconNavBar}>Skills</MenuItem>
+          </ScrollLink>
+          <ScrollLink
+            to="projects"
+            spy={true}
+            smooth={!prefersReducedMotion}
+            offset={-NAV_HEIGHT}
+            duration={DURATION}
+            onSetActive={() => handleSetActive("projects")}
+          >
+            <MenuItem sx={StyledIconNavBar}>Projects</MenuItem>
+          </ScrollLink>
         </StyledTooBar>
       </AppBar>
     </>
