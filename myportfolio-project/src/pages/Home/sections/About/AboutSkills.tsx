@@ -49,7 +49,7 @@ const StyledSkills = styled("div")(({ theme }) => ({
 
 const StyledCardSkill = styled(Card)(({ theme }) => ({
   flex: "1",
-  padding: "0.6rem 0.6rem",
+  padding: "0.6rem 0.5rem",
   textAlign: "center",
   marginBottom: "0.6rem",
   // backgroundColor: "white",
