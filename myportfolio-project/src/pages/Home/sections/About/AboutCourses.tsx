@@ -4,8 +4,10 @@ import { Box } from "@mui/system";
 import TypewriterCourse from "../../../../components/Typewriter/TypewriterCourse";
 import SchoolIcon from "@mui/icons-material/School";
 import { Description } from "@mui/icons-material";
+import { Element } from "react-scroll";
 
 const AboutSection = styled(Box)(({ theme }) => ({
+  // paddingBottom: "4rem",
   marginBottom: theme.spacing(1),
   textAlign: "left",
   padding: "0.6rem 0.5rem",
@@ -47,52 +49,57 @@ const courses = [
 const AboutCouses: React.FC = () => {
   return (
     <>
-      <Grid container spacing={1} justifyContent={"center"}>
-        <Grid size={{ xs: 12, md: 7 }}>
-          <AboutSection>
-            <Typography>
-              <TypewriterCourse
-                text="Courses With Certificates ⭐"
-                delay={40}
-                variant="h3"
-                color="white"
-                fontWeight="bolder"
-              />
-            </Typography>
-          </AboutSection>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3} justifyContent={"center"}>
-        {courses.map(({ institution, course }, index) => (
-          <Grid size={{ xs: 12, sm: 6, md: 6 }} key={index}>
-            <Fade in={true} style={{ transitionDelay: `${index * 300}ms` }}>
-              <CourseCard elevation={3}>
-                <CardContent>
-                  <Typography
-                    variant="subtitle1"
-                    fontWeight={"bold"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    gap={1}
-                  >
-                    <SchoolIcon /> {institution}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    mt={1}
-                    display={"flex"}
-                    alignItems={"center"}
-                    gap={1}
-                  >
-                    <Description /> {course}
-                  </Typography>
-                </CardContent>
-              </CourseCard>
-            </Fade>
+      <Element name="courses">
+        <AboutSection
+          id="courses"
+          tabIndex={-1}
+          aria-labelledby="courses-title"
+        >
+          <Grid container spacing={1} justifyContent={"center"}>
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography>
+                <TypewriterCourse
+                  text="Courses With Certificates ⭐"
+                  delay={40}
+                  variant="h3"
+                  color="white"
+                  fontWeight="bolder"
+                />
+              </Typography>
+            </Grid>
           </Grid>
-        ))}
-      </Grid>
+        </AboutSection>
+        <Grid container spacing={3} justifyContent={"center"}>
+          {courses.map(({ institution, course }, index) => (
+            <Grid size={{ xs: 12, sm: 6, md: 6 }} key={index}>
+              <Fade in={true} style={{ transitionDelay: `${index * 300}ms` }}>
+                <CourseCard elevation={3}>
+                  <CardContent>
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight={"bold"}
+                      display={"flex"}
+                      alignItems={"center"}
+                      gap={1}
+                    >
+                      <SchoolIcon /> {institution}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      mt={1}
+                      display={"flex"}
+                      alignItems={"center"}
+                      gap={1}
+                    >
+                      <Description /> {course}
+                    </Typography>
+                  </CardContent>
+                </CourseCard>
+              </Fade>
+            </Grid>
+          ))}
+        </Grid>
+      </Element>
     </>
   );
 };
