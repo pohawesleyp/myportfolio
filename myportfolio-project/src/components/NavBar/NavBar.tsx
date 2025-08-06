@@ -60,6 +60,16 @@ const NavBar: React.FC = () => {
             <MenuItem sx={StyledIconNavBar}>Skills</MenuItem>
           </ScrollLink>
           <ScrollLink
+            to="courses"
+            spy={true}
+            smooth={!prefersReducedMotion}
+            offset={-NAV_HEIGHT}
+            duration={DURATION}
+            onSetActive={() => handleSetActive("courses")}
+          >
+            <MenuItem sx={StyledIconNavBar}>Courses</MenuItem>
+          </ScrollLink>
+          <ScrollLink
             to="projects"
             spy={true}
             smooth={!prefersReducedMotion}
