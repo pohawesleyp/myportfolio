@@ -5,12 +5,12 @@ from pydantic import BaseModel, EmailStr
 app = FastAPI()
 
 # Habilitando o acesso do Front-End
-app.add._middleware (
+app.add_middleware (
     CORSMiddleware,
     allow_origins=["http://localhost:5173/"], #Porta onde o React roda
     allow_credentials=True,
     allow_methods=["*"],
-    allow_header=["*"],
+    allow_headers=["*"],
 )
 
 #Modelo do formulário de contato
