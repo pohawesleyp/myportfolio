@@ -1,4 +1,5 @@
 import Footer from "./components/Footer/Footer";
+import ContactForm from "./components/Form/ContactForm";
 import NavBar from "./components/NavBar/NavBar";
 import AboutMain from "./pages/Home/sections/About/AboutMain";
 import AboutSkills from "./pages/Home/sections/About/AboutSkills";
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <AboutMain />
       <AboutSkills />
       <Projects />
+      <ContactForm />
 
       <Footer />
     </>

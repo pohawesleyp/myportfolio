@@ -79,6 +79,16 @@ const NavBar: React.FC = () => {
           >
             <MenuItem sx={StyledIconNavBar}>Projects</MenuItem>
           </ScrollLink>
+          <ScrollLink
+            to="contactForm"
+            spy={true}
+            smooth={!prefersReducedMotion}
+            offset={-NAV_HEIGHT}
+            duration={DURATION}
+            onSetActive={() => handleSetActive("contactForm")}
+          >
+            <MenuItem sx={StyledIconNavBar}>Contact Form</MenuItem>
+          </ScrollLink>
         </StyledTooBar>
       </AppBar>
     </>
