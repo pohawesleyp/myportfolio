@@ -20,7 +20,7 @@ const StyledCardProjects = styled(Card)(({ theme }) => ({
   height: "100%",
   padding: "0.6rem 0.6rem",
   textAlign: "center",
-  marginBottom: "0.6rem",
+  // marginBottom: "0.6rem",
   flexDirection: "column",
   borderRadius: "2rem",
   backgroundColor: theme.palette.secondary.light,
