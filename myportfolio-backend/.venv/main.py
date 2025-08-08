@@ -7,7 +7,7 @@ app = FastAPI()
 # Habilitando o acesso do Front-End
 app.add_middleware (
     CORSMiddleware,
-    allow_origins=["http://localhost:5173/"], #Porta onde o React roda
+    allow_origins=["http://localhost:5173"], #Porta onde o React roda
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
