@@ -4,13 +4,12 @@ import axios from "axios";
 import { ContactPage } from "@mui/icons-material";
 import { IconButton, Typography, Grid, Container } from "@mui/material";
 import { styled } from "@mui/material";
-import { Element } from "react-scroll";
 import theme from "../../theme";
 
 const StyledForm = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
   color: theme.palette.primary.contrastText,
-  paddingBottom: "4rem",
+  // paddingBottom: "4rem",
   // display: "flex",
 }));
 
@@ -77,91 +76,85 @@ const ContactForm: React.FC = () => {
 
   return (
     <>
-      <Element name="contactForm">
-        <StyledForm
-          id="contactForm"
-          tabIndex={-1}
-          aria-labelledby="about-title"
-        >
-          <Container maxWidth="lg">
-            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-              <form
-                onSubmit={handleSubmit}
-                style={{ maxWidth: 400, margin: "auto" }}
-              >
-                <ContactPage />
-                <Typography variant="h3">Contact</Typography>
-                <label>
-                  Name: <br />
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    disabled={loading}
-                    required
-                  />
-                </label>
-                <br /> <br />
-                <label>
-                  Email: <br />
-                  <input
-                    type="text"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    disabled={loading}
-                    required
-                  />
-                </label>
-                <br /> <br />
-                <label>
-                  Message: <br />
-                  <input
-                    type="text"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    disabled={loading}
-                    required
-                  />
-                </label>
-                <br /> <br />
-                <IconButton
-                  type="submit"
+      <StyledForm id="contactForm" tabIndex={-1} aria-labelledby="form-contact">
+        <Container maxWidth="lg">
+          <Grid size={{ xs: 12, md: 5 }}>
+            <form
+              onSubmit={handleSubmit}
+              style={{ maxWidth: 400, margin: "auto" }}
+            >
+              <ContactPage />
+              <Typography variant="h2">Contact</Typography>
+              <label>
+                Name: <br />
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
                   disabled={loading}
-                  sx={{
+                  required
+                />
+              </label>
+              <br /> <br />
+              <label>
+                Email: <br />
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  disabled={loading}
+                  required
+                />
+              </label>
+              <br /> <br />
+              <label>
+                Message: <br />
+                <input
+                  type="text"
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  disabled={loading}
+                  required
+                />
+              </label>
+              <br /> <br />
+              <IconButton
+                type="submit"
+                disabled={loading}
+                sx={{
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.secondary.main,
+                  borderRadius: "0.5rem",
+                  "&:hover": {
+                    transform: "scale(1.3)",
+                    transition: "transform 0.3s ease, color 0.3s ease",
                     backgroundColor: theme.palette.secondary.main,
-                    color: theme.palette.primary.main,
-                    borderRadius: "0.5rem",
-                    "&:hover": {
-                      transform: "scale(1.3)",
-                      transition: "transform 0.3s ease, color 0.3s ease",
-                      backgroundColor: `${theme.palette.primary.main}`,
-                      color: "white",
-                      borderRadius: "1rem",
-                      fontWeight: "bold",
-                    },
-                  }}
-                >
-                  {loading ? "Enviado..." : "Enviar"}
-                </IconButton>
-                {status === "success" && (
-                  <p style={{ color: "green" }}>
-                    Mensagem enviada com sucesso!🎉
-                  </p>
-                )}
-                {status === "error" && (
-                  <p style={{ color: "red" }}>
-                    Ocorreu um erro ao enviar. Tente novamente em alguns
-                    minutos.🎉
-                  </p>
-                )}
-              </form>
-            </Grid>
-          </Container>
-        </StyledForm>
-      </Element>
+                    color: "white",
+                    borderRadius: "1rem",
+                    fontWeight: "bold",
+                  },
+                }}
+              >
+                {loading ? "Enviado..." : "Enviar"}
+              </IconButton>
+              {status === "success" && (
+                <p style={{ color: "green" }}>
+                  Mensagem enviada com sucesso!🎉
+                </p>
+              )}
+              {status === "error" && (
+                <p style={{ color: "red" }}>
+                  Ocorreu um erro ao enviar. Tente novamente em alguns
+                  minutos.🎉
+                </p>
+              )}
+            </form>
+          </Grid>
+        </Container>
+      </StyledForm>
     </>
   );
 };
