@@ -2,6 +2,7 @@ import { AppBar, MenuItem, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
 import theme from "../../theme";
 import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const StyledTooBar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -79,16 +80,10 @@ const NavBar: React.FC = () => {
           >
             <MenuItem sx={StyledIconNavBar}>Projects</MenuItem>
           </ScrollLink>
-          <ScrollLink
-            to="contactForm"
-            spy={true}
-            smooth={!prefersReducedMotion}
-            offset={-NAV_HEIGHT}
-            duration={DURATION}
-            onSetActive={() => handleSetActive("contactForm")}
-          >
-            <MenuItem sx={StyledIconNavBar}>Contact Form</MenuItem>
-          </ScrollLink>
+
+          <MenuItem component={RouterLink} to="/contact" sx={StyledIconNavBar}>
+            Contact Form
+          </MenuItem>
         </StyledTooBar>
       </AppBar>
     </>
