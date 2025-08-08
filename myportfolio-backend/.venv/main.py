@@ -25,4 +25,4 @@ class ContactForm(BaseModel):
 @app.post("/contact")
 def receive_contact(form: ContactForm):
     print(f"\n📬 Nova mensagem de {form.name} ({form.email}):\n{form.message}\n")
-    return {"sucess": True, "message": "Mensagem recebida com sucesso!"}
+    return {"success": True, "message": "Mensagem recebida com sucesso!"}

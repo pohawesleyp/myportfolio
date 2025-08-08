@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
       setLoading(true);
       setStatus(null);
 
-      const response = await axios.post("http://127.0.0.1:8000/contact", form);
+      const response = await axios.post("http://localhost:8000/contact", form);
 
       if (response.status === 200) {
         setStatus("success");
