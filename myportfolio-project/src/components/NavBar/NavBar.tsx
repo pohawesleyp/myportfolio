@@ -1,8 +1,10 @@
 import { AppBar, MenuItem, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
 import theme from "../../theme";
-import { Link as ScrollLink } from "react-scroll";
+// import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { scroller } from "react-scroll";
 
 const StyledTooBar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -27,81 +29,69 @@ const StyledIconNavBar = {
 };
 
 const NAV_HEIGHT = 72;
-const DURATION = 500;
+// const DURATION = 500;
 
 const NavBar: React.FC = () => {
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const navigate = useNavigate();
 
-  const handleSetActive = (name: string) => {
-    // quando o link vira ativo, dá foco na seção (acessibilidade)
-    const el = document.getElementById(name);
-    if (el) el.focus({ preventScroll: true });
+  const scrollToSection = (sectionId: string) => {
+    // Redireciona para a página inicial
+    navigate("/");
+
+    setTimeout(() => {
+      scroller.scrollTo(sectionId, {
+        duration: 500,
+        smooth: true,
+        offset: -NAV_HEIGHT,
+      });
+    }, 100);
   };
+
+  // const prefersReducedMotion =
+  //   typeof window !== "undefined" &&
+  //   window.matchMedia &&
+  //   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // const handleSetActive = (name: string) => {
+  //   // quando o link vira ativo, dá foco na seção (acessibilidade)
+  //   const el = document.getElementById(name);
+  //   if (el) el.focus({ preventScroll: true });
+  // };
 
   return (
     <>
       <AppBar position="absolute">
         <StyledTooBar>
-          <ScrollLink
-            to="about"
-            spy={true}
-            smooth={!prefersReducedMotion}
-            offset={-NAV_HEIGHT}
-            duration={DURATION}
-            onSetActive={() => handleSetActive("about")}
+          <MenuItem
+            sx={StyledIconNavBar}
+            onClick={() => scrollToSection("about")}
           >
-            <MenuItem sx={StyledIconNavBar}>About</MenuItem>
-          </ScrollLink>
-          <ScrollLink
-            to="skills"
-            spy={true}
-            smooth={!prefersReducedMotion}
-            offset={-NAV_HEIGHT}
-            duration={DURATION}
-            onSetActive={() => handleSetActive("skills")}
-          >
-            <MenuItem sx={StyledIconNavBar}>Skills</MenuItem>
-          </ScrollLink>
-          <ScrollLink
-            to="courses"
-            spy={true}
-            smooth={!prefersReducedMotion}
-            offset={-NAV_HEIGHT}
-            duration={DURATION}
-            onSetActive={() => handleSetActive("courses")}
-          >
-            <MenuItem sx={StyledIconNavBar}>Courses</MenuItem>
-          </ScrollLink>
-          <ScrollLink
-            to="projects"
-            spy={true}
-            smooth={!prefersReducedMotion}
-            offset={-NAV_HEIGHT}
-            duration={DURATION}
-            onSetActive={() => handleSetActive("projects")}
-          >
-            <MenuItem sx={StyledIconNavBar}>Projects</MenuItem>
-          </ScrollLink>
+            About
+          </MenuItem>
 
-          <ScrollLink
-            to="contactForm"
-            spy={true}
-            smooth={!prefersReducedMotion}
-            offset={-NAV_HEIGHT}
-            duration={DURATION}
-            onSetActive={() => handleSetActive("contactForm")}
+          <MenuItem
+            sx={StyledIconNavBar}
+            onClick={() => scrollToSection("skills")}
           >
-            <MenuItem
-              component={RouterLink}
-              to="/contact"
-              sx={StyledIconNavBar}
-            >
-              Contact Form
-            </MenuItem>
-          </ScrollLink>
+            Skills
+          </MenuItem>
+
+          <MenuItem
+            sx={StyledIconNavBar}
+            onClick={() => scrollToSection("courses")}
+          >
+            Courses
+          </MenuItem>
+
+          <MenuItem
+            sx={StyledIconNavBar}
+            onClick={() => scrollToSection("projects")}
+          >
+            Projects
+          </MenuItem>
+          <MenuItem component={RouterLink} to="/contact" sx={StyledIconNavBar}>
+            Contact Form
+          </MenuItem>
         </StyledTooBar>
       </AppBar>
     </>
