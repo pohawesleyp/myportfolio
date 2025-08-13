@@ -8,6 +8,11 @@ const StyledTooBar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-evenly",
   backgroundColor: theme.palette.primary.main,
+
+  [theme.breakpoints.down("sm")]: {
+    justifyContent: "center", // centraliza links em telas pequenas
+    flexWrap: "wrap", // evita que ultrapasse a largura
+  },
 }));
 
 const StyledIconNavBar = {
@@ -81,9 +86,22 @@ const NavBar: React.FC = () => {
             <MenuItem sx={StyledIconNavBar}>Projects</MenuItem>
           </ScrollLink>
 
-          <MenuItem component={RouterLink} to="/contact" sx={StyledIconNavBar}>
-            Contact Form
-          </MenuItem>
+          <ScrollLink
+            to="contactForm"
+            spy={true}
+            smooth={!prefersReducedMotion}
+            offset={-NAV_HEIGHT}
+            duration={DURATION}
+            onSetActive={() => handleSetActive("contactForm")}
+          >
+            <MenuItem
+              component={RouterLink}
+              to="/contact"
+              sx={StyledIconNavBar}
+            >
+              Contact Form
+            </MenuItem>
+          </ScrollLink>
         </StyledTooBar>
       </AppBar>
     </>
