@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material";
 // import theme from "../../theme";
-import { LoadingButton } from "@mui/lab";
+import Button from "@mui/material/Button";
 
 const StyledForm = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
@@ -166,13 +166,9 @@ const ContactForm: React.FC = () => {
                   </Grid>
                 </Grid>
                 <CardActions sx={{ justifyContent: "flex-end", mt: 2 }}>
-                  <LoadingButton
-                    type="submit"
-                    variant="contained"
-                    loading={loading}
-                  >
+                  <Button type="submit" variant="contained" loading={loading}>
                     Enviar
-                  </LoadingButton>
+                  </Button>
                 </CardActions>
                 <ContactPage />
               </form>
