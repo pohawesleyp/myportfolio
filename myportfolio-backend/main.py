@@ -24,7 +24,7 @@ class Contact(Base):
     message = Column(Text, nullable=False)
 
 # Criação das tabelas no banco
-Base.metadata.create.all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 
 # ============ FastAPI e Middleware =============
@@ -68,10 +68,9 @@ def receive_contact(form: ContactForm, db: Session = Depends(get_db)):
     db.add(contact)
     db.commit()
     db.refresh(contact)
-    db.close()
     print(f"\n📬 Nova mensagem de {form.name} ({form.email}):\n{form.message}\n")
     return {"success": True, "message": "Mensagem recebida com sucesso!"}
 
-@app.get("/contacts", responde_model=list[ContactResponse])
+@app.get("/contacts", response_model=list[ContactResponse])
 def list_contacts(db: Session = Depends(get_db)):
     return db.query(Contact).all()
