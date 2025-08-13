@@ -2,15 +2,44 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { ContactPage } from "@mui/icons-material";
-import { IconButton, Typography, Grid, Container } from "@mui/material";
+import {
+  Typography,
+  Container,
+  Card,
+  CardHeader,
+  CardContent,
+  Grid,
+  CardActions,
+  TextField,
+  Snackbar,
+  Alert,
+} from "@mui/material";
 import { styled } from "@mui/material";
-import theme from "../../theme";
+// import theme from "../../theme";
+import { LoadingButton } from "@mui/lab";
 
 const StyledForm = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
   color: theme.palette.primary.contrastText,
-  // paddingBottom: "4rem",
-  // display: "flex",
+  height: "100vh",
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  boxSizing: "border-box",
+  overflowX: "hidden",
+
+  [theme.breakpoints.up("xs")]: {
+    paddingTop: "100px",
+    boxSizing: "border-box",
+    overflowX: "hidden",
+  },
+  [theme.breakpoints.up("md")]: {
+    paddingTop: "0",
+    paddingLeft: "2rem",
+    paddingRight: "2rem",
+    paddingBottom: "2rem",
+  },
 }));
 
 interface ContactFormData {
@@ -28,6 +57,9 @@ const ContactForm: React.FC = () => {
 
   const [status, setStatus] = useState<null | "success" | "error">(null);
   const [loading, setLoading] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleCloseSnackbar = () => setOpenSnackbar(false);
 
   // Atualizando os campos do Form
 
@@ -45,12 +77,14 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
-      alert("Por favor, preencha todos os campos!");
+      setStatus("error");
+      setOpenSnackbar(true);
       return;
     }
 
     if (!isValidEmail(form.email)) {
-      alert("Por favor, insira um email valido!");
+      setStatus("error");
+      setOpenSnackbar(true);
       return;
     }
 
@@ -62,13 +96,16 @@ const ContactForm: React.FC = () => {
 
       if (response.status === 200) {
         setStatus("success");
+        setOpenSnackbar(true);
         setform({ name: "", email: "", message: "" });
       } else {
         setStatus("error");
+        setOpenSnackbar(true);
       }
     } catch (error) {
       console.error("Erro ao enviar o formulário:", error);
       setStatus("error");
+      setOpenSnackbar(true);
     } finally {
       setLoading(false);
     }
@@ -77,83 +114,91 @@ const ContactForm: React.FC = () => {
   return (
     <>
       <StyledForm id="contactForm" tabIndex={-1} aria-labelledby="form-contact">
-        <Container maxWidth="lg">
-          <Grid size={{ xs: 12, md: 5 }}>
-            <form
-              onSubmit={handleSubmit}
-              style={{ maxWidth: 400, margin: "auto" }}
-            >
-              <ContactPage />
-              <Typography variant="h2">Contact</Typography>
-              <label>
-                Name: <br />
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  disabled={loading}
-                  required
-                />
-              </label>
-              <br /> <br />
-              <label>
-                Email: <br />
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  disabled={loading}
-                  required
-                />
-              </label>
-              <br /> <br />
-              <label>
-                Message: <br />
-                <input
-                  type="text"
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  disabled={loading}
-                  required
-                />
-              </label>
-              <br /> <br />
-              <IconButton
-                type="submit"
-                disabled={loading}
-                sx={{
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.secondary.main,
-                  borderRadius: "0.5rem",
-                  "&:hover": {
-                    transform: "scale(1.3)",
-                    transition: "transform 0.3s ease, color 0.3s ease",
-                    backgroundColor: theme.palette.secondary.main,
-                    color: "white",
-                    borderRadius: "1rem",
-                    fontWeight: "bold",
-                  },
-                }}
-              >
-                {loading ? "Enviado..." : "Enviar"}
-              </IconButton>
-              {status === "success" && (
-                <p style={{ color: "green" }}>
-                  Mensagem enviada com sucesso!🎉
-                </p>
-              )}
-              {status === "error" && (
-                <p style={{ color: "red" }}>
-                  Ocorreu um erro ao enviar. Tente novamente em alguns
-                  minutos.🎉
-                </p>
-              )}
-            </form>
-          </Grid>
+        <Container maxWidth="sm">
+          <Card elevation={4}>
+            <CardHeader
+              avatar={<ContactPage color="primary" />}
+              title={
+                <Typography variant="h5" fontWeight={"bold"}>
+                  Contact Me
+                </Typography>
+              }
+              subheader="Fill in the fields below to send me a message"
+            />
+            <CardContent>
+              <form onSubmit={handleSubmit}>
+                <Grid container spacing={3}>
+                  <Grid size={{ xs: 12 }}>
+                    <TextField
+                      fullWidth
+                      label="Name"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      disabled={loading}
+                      required
+                    />
+                  </Grid>
+                  <Grid size={{ xs: 12 }}>
+                    <TextField
+                      fullWidth
+                      type="email"
+                      label="E-mail"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      disabled={loading}
+                      required
+                    />
+                  </Grid>
+                  <Grid size={{ xs: 12 }}>
+                    <TextField
+                      fullWidth
+                      label="Message"
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      disabled={loading}
+                      required
+                      multiline
+                      minRows={4}
+                    />
+                  </Grid>
+                </Grid>
+                <CardActions sx={{ justifyContent: "flex-end", mt: 2 }}>
+                  <LoadingButton
+                    type="submit"
+                    variant="contained"
+                    loading={loading}
+                  >
+                    Enviar
+                  </LoadingButton>
+                </CardActions>
+                <ContactPage />
+              </form>
+            </CardContent>
+          </Card>
         </Container>
+
+        {status && (
+          <Snackbar
+            open={openSnackbar}
+            autoHideDuration={4000}
+            onClose={handleCloseSnackbar}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          >
+            <Alert
+              onClose={handleCloseSnackbar}
+              severity={status}
+              variant="filled"
+              sx={{ width: "100%" }}
+            >
+              {status === "success"
+                ? "Message sent successfully!🎉"
+                : "An error occurred while sending. Please try again."}
+            </Alert>
+          </Snackbar>
+        )}
       </StyledForm>
     </>
   );
