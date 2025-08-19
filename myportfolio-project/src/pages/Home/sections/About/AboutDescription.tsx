@@ -1,4 +1,4 @@
-import { styled, Grid } from "@mui/material";
+import { styled, Grid, Link } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { motion } from "framer-motion";
@@ -29,49 +29,106 @@ const AboutDescription: React.FC = () => {
         <AboutSection id="" tabIndex={-1} aria-labelledby="about-title">
           <Grid size={{ xs: 12, md: 7 }}>
             <Typography
-              variant="body2"
-              paragraph
-              fontFamily="serif"
+              variant="h6"
+              gutterBottom
               fontWeight="bold"
               fontSize={16}
               textAlign="center"
-              flexDirection="column"
             >
-              Prazer, eu sou Wesley Amaro (mas pode me chamar de Wes). Tenho 28
-              anos, moro em São Paulo e sou apaixonado por dar vida a interfaces
-              incríveis. Sou estudante de ADS, dev Front-End por vocação,
-              Full-Stack em evolução e curioso profissional de T.I. há 6 anos.
+              Olá, eu sou Wesley Amaro 👋
               <br />
               <br />
-              Ao longo da minha trajetória profissional, atuei em áreas como
-              Desenvolvimento, Suporte Técnico, Assistência em T.I., Atendimento
-              e Liderança. Essa bagagem me deu visão ampla, foco em resultados e
-              jogo de cintura pra resolver qualquer pepino.
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              textAlign={"justify"}
+              sx={{ mb: 2 }}
+            >
+              Tenho 28 anos, moro em São Paulo e sou apaixonado por dar vida a
+              interfaces incríveis. Sou estudante de Analise e Desenvolvimento
+              de Sistemas (ADS), Dev Front-End por vocação, Full-Stack em
+              evolução e curioso profissional de T.I.
+            </Typography>
+            <br />
+            <Typography variant="subtitle1" fontWeight={"bold"} gutterBottom>
+              Experiência Profissional ⚡
+            </Typography>
+
+            <Typography
+              variant="body1"
+              paragraph
+              textAlign={"justify"}
+              sx={{ mb: 2 }}
+            >
+              Tenho mais de 10 anos de experiência no mercado de trabalho, sendo
+              6 dedicados à área de tecnologia. Ao longo desse tempo, desenvolvi
+              habilidades profissionais sólidas com destaque para organização,
+              comunicação, resolução de problemas e foco em resultados. Durante
+              esse período, contribuí diretamente para o crescimento da Niu
+              Fibra (hoje parte do grupo Alloha Fibra), otimizando processos e
+              melhorando a experiência do cliente por meio de ferramentas como
+              Excel, PowerPoint, Teams, 3CX, AnyDesk, além do suporte a
+              softwares e hardwares utilizados internamente pela empresa.
+            </Typography>
+            <br />
+            <Typography variant="subtitle1" fontWeight={"bold"} gutterBottom>
+              Formação 💻
+            </Typography>
+            <Typography
+              variant="body1"
+              paragraph
+              textAlign={"justify"}
+              sx={{ mb: 2 }}
+            >
+              Estou finalizando minha graduação em ADS com foco em Front-End,
+              porém estou migrando pra Full Stack. Tenho certificações em
+              tecnologias web: HTML, CSS, JavaScript, TypeScript, Node.js,
+              React, Tailwind, Sass, Material UI e Figma. Além de certificação
+              em noções de linguagens de programação em: Python, Java, C, C++ e
+              C#.
               <br />
-              <br />
-              Atualmente finalizando minha graduação em Análise e
-              Desenvolvimento de Sistemas (ADS), com foco em Front-End e
-              Full-Stack. Tenho certificações em tecnologias web como HTML, CSS,
-              JavaScript, TypeScript, Node.js, React, Tailwind, Sass, Material
-              UI e Figma.
-              <br />
-              <br />
-              Também estou expandindo minha base Full Stack com Python e SQL, e
-              faço do GitHub meu companheiro diário. De quebra, tenho noções de
-              linguagens como Java, C, C++ e C#, porque conhecer várias
-              linguagens é sempre poder de fogo extra.
-              <br />
-              <br />
-              São mais de 10 anos de experiência no mercado, 6 deles dedicados à
-              tecnologia. Nesse tempo, contribuí para o crescimento da Niu Fibra
-              (empresa júnior de Guarujá que hoje integra o grupo Alloha Fibra),
-              otimizando processos, criando soluções e melhorando a experiência
-              dos clientes com ferramentas como Excel, PowerPoint, Teams, 3CX,
-              AnyDesk, além de muito suporte a softwares e hardwares internos.
-              <br />
-              <br />
-              Meu objetivo? Seguir evoluindo como desenvolvedor, criando
-              soluções que impactem pessoas e negócios de verdade.
+              Minha base Full Stack está sendo desenvolvida com Python e SQL,
+              além de fazer o uso diário do GitHub.
+            </Typography>
+            <Typography variant="subtitle1" fontWeight={"bold"} gutterBottom>
+              Objetivos 📚
+            </Typography>
+            <Typography variant="body1" paragraph textAlign="justify">
+              Meu objetivo é seguir evoluindo como desenvolvedor, criando
+              soluções que impactem pessoas e negócios de verdade. Confira meus{" "}
+              <Link
+                href="https://github.com/pohawesleyp?tab=repositories"
+                target="_blank"
+                underline="hover"
+                color="white"
+                fontWeight={"bold"}
+              >
+                outros Portfólios
+              </Link>
+              , me siga no{" "}
+              <Link
+                href="https://github.com/pohawesleyp"
+                target="_blank"
+                rel="noopener"
+                underline="hover"
+                color="white"
+                fontWeight={"bold"}
+              >
+                {" "}
+                GitHub{" "}
+              </Link>
+              e entre em contato comigo no{" "}
+              <Link
+                href="https://www.linkedin.com/in/wesley-amaro"
+                target="_blank"
+                underline="hover"
+                color="white"
+                fontWeight={"bold"}
+              >
+                {" "}
+                Linkedin
+              </Link>
             </Typography>
           </Grid>
         </AboutSection>
