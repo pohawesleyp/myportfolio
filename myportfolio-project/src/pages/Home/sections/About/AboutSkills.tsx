@@ -5,6 +5,7 @@ import {
   Typography,
   Card,
   CardContent,
+  Box,
 } from "@mui/material";
 import {
   StarBorderOutlined,
@@ -15,7 +16,9 @@ import {
   Construction,
 } from "@mui/icons-material";
 import { Element } from "react-scroll";
-// import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const skills = [
   { name: "HTML", level: "Advanced", icon: Html },
@@ -37,28 +40,24 @@ const skills = [
 const StyledSkills = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
   color: theme.palette.primary.contrastText,
-  paddingBottom: "4rem",
-  //   paddingBottom: "30%",
-  //   [theme.breakpoints.up("sm")]: {
-  //     paddingTop: "2rem",
-  //   },
-  //   [theme.breakpoints.up("md")]: {
-  //     paddingTop: "0",
-  //   },
+  padding: theme.spacing(3),
 }));
 
 const StyledCardSkill = styled(Card)(({ theme }) => ({
   flex: "1",
   padding: "0.6rem 0.5rem",
   textAlign: "center",
-  marginBottom: "0.6rem",
-  // backgroundColor: "white",
+  marginBottom: theme.spacing(4),
+
   backgroundColor: theme.palette.primary.light,
   color: theme.palette.secondary.light,
+
+  maxWidth: 800,
+  marginLeft: "auto",
+  marginRight: "auto",
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
     color: theme.palette.primary.light,
-    // transform: "scale(1.1)",
     borderRadius: "1rem",
     zIndex: 10,
     transform: "perspective(1000px) rotateY(10deg) rotateX(10deg) scale(1.05)",
@@ -72,46 +71,60 @@ const AboutSkills: React.FC = () => {
       <Element name="skills">
         <StyledSkills id="skills" tabIndex={-1} aria-labelledby="about-title">
           <Container maxWidth="lg">
-            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-              <Typography
-                variant="h3"
-                textAlign={"center"}
-                fontStyle={"italic"}
-                fontWeight={"bolder"}
-                gutterBottom
-                paddingBottom={4}
-                paddingTop={4}
-              >
-                My Skills 🚀
-              </Typography>
-            </Grid>
-            <Grid container spacing={2} justifyContent={"center"}>
-              {skills.map((skills, index) => (
-                <Grid
-                  key={index}
-                  alignItems={"center"}
-                  size={{ xs: 12, sm: 6, md: 3 }}
+            <MotionBox
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
+            >
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Typography
+                  variant="h3"
+                  textAlign={"center"}
+                  fontStyle={"italic"}
+                  fontWeight={"bolder"}
+                  gutterBottom
+                  paddingBottom={4}
+                  paddingTop={4}
                 >
-                  <StyledCardSkill variant="elevation">
-                    <StarBorderOutlined />
+                  My Skills 🚀
+                </Typography>
+              </Grid>
+            </MotionBox>
+            <MotionBox
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
+            >
+              <Grid container spacing={2} justifyContent={"center"}>
+                {skills.map((skills, index) => (
+                  <Grid
+                    key={index}
+                    alignItems={"center"}
+                    size={{ xs: 12, sm: 6, md: 3 }}
+                  >
+                    <StyledCardSkill variant="elevation">
+                      <StarBorderOutlined />
 
-                    <CardContent>
-                      <Typography
-                        variant="h6"
-                        textAlign={"center"}
-                        fontWeight={"bold"}
-                      >
-                        {skills.name}
-                      </Typography>
+                      <CardContent>
+                        <Typography
+                          variant="h6"
+                          textAlign={"center"}
+                          fontWeight={"bold"}
+                        >
+                          {skills.name}
+                        </Typography>
 
-                      <Typography variant="h6" textAlign={"center"}>
-                        {skills.level}
-                      </Typography>
-                    </CardContent>
-                  </StyledCardSkill>
-                </Grid>
-              ))}
-            </Grid>
+                        <Typography variant="h6" textAlign={"center"}>
+                          {skills.level}
+                        </Typography>
+                      </CardContent>
+                    </StyledCardSkill>
+                  </Grid>
+                ))}
+              </Grid>
+            </MotionBox>
           </Container>
         </StyledSkills>
       </Element>

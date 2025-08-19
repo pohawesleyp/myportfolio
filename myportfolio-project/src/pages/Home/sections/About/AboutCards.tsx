@@ -1,8 +1,11 @@
-import { styled, Grid, Card } from "@mui/material";
+import { styled, Grid, Card, Box } from "@mui/material";
 import { Typography } from "@mui/material";
 // import { Box } from "@mui/system";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SchoolIcon from "@mui/icons-material/School";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const StyledCard = styled(Card)(({ theme }) => ({
   flex: "1",
@@ -24,30 +27,37 @@ const StyledCard = styled(Card)(({ theme }) => ({
 const AboutCards: React.FC = () => {
   return (
     <>
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        pb={3}
-        flexWrap="wrap"
+      <MotionBox
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9 }}
       >
-        <Grid size={{ xs: 9, md: 2.5 }} sx={{ display: "flex" }}>
-          <StyledCard variant="outlined">
-            <WorkspacePremiumIcon />
-            <Typography fontWeight={600}>Experience</Typography>
-            <Typography>+1 years</Typography>
-            <Typography>Frontend Development</Typography>
-          </StyledCard>
+        <Grid
+          container
+          spacing={2}
+          justifyContent="center"
+          pb={3}
+          flexWrap="wrap"
+        >
+          <Grid size={{ xs: 9, md: 2.5 }} sx={{ display: "flex" }}>
+            <StyledCard variant="outlined">
+              <WorkspacePremiumIcon />
+              <Typography fontWeight={600}>Experience</Typography>
+              <Typography>+1 years</Typography>
+              <Typography>Frontend Development</Typography>
+            </StyledCard>
+          </Grid>
+          <Grid size={{ xs: 9, md: 2.5 }} sx={{ display: "flex" }}>
+            <StyledCard variant="outlined">
+              <SchoolIcon />
+              <Typography fontWeight={600}>Education</Typography>
+              <Typography>Higher Technology Degree</Typography>
+              <Typography>Systems Analysis and Development</Typography>
+            </StyledCard>
+          </Grid>
         </Grid>
-        <Grid size={{ xs: 9, md: 2.5 }} sx={{ display: "flex" }}>
-          <StyledCard variant="outlined">
-            <SchoolIcon />
-            <Typography fontWeight={600}>Education</Typography>
-            <Typography>Higher Technology Degree</Typography>
-            <Typography>Systems Analysis and Development</Typography>
-          </StyledCard>
-        </Grid>
-      </Grid>
+      </MotionBox>
     </>
   );
 };

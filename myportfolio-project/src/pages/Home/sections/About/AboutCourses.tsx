@@ -5,12 +5,15 @@ import TypewriterCourse from "../../../../components/Typewriter/TypewriterCourse
 import SchoolIcon from "@mui/icons-material/School";
 import { Description } from "@mui/icons-material";
 import { Element } from "react-scroll";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const AboutSection = styled(Box)(({ theme }) => ({
-  // paddingBottom: "4rem",
+  paddingBottom: "4rem",
   marginBottom: theme.spacing(1),
   textAlign: "left",
-  padding: "0.6rem 0.5rem",
+  padding: theme.spacing(3),
 }));
 
 const CourseCard = styled(Card)(({ theme }) => ({
@@ -19,9 +22,9 @@ const CourseCard = styled(Card)(({ theme }) => ({
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
   cursor: "default",
   padding: "0.6rem 0.5rem",
-  marginBottom: "0.6rem",
+  marginBottom: theme.spacing(1),
   "&:hover": {
-    transform: "scale(1.05)",
+    transform: "scale(1.1)",
     backgroundColor: theme.palette.primary.light,
     color: "white",
     boxShadow: "0 20px 40px rgba(117, 194, 245, 0.3)",
@@ -50,55 +53,62 @@ const AboutCouses: React.FC = () => {
   return (
     <>
       <Element name="courses">
-        <AboutSection
-          id="courses"
-          tabIndex={-1}
-          aria-labelledby="courses-title"
+        <MotionBox
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
         >
-          <Grid container spacing={1} justifyContent={"center"}>
-            <Grid size={{ xs: 12, md: 7 }}>
-              <Typography>
-                <TypewriterCourse
-                  text="Courses With Certificates ⭐"
-                  delay={40}
-                  variant="h3"
-                  color="white"
-                  fontWeight="bolder"
-                />
-              </Typography>
+          <AboutSection
+            id="courses"
+            tabIndex={-1}
+            aria-labelledby="courses-title"
+          >
+            <Grid container spacing={1} justifyContent={"center"}>
+              <Grid size={{ xs: 12, md: 7 }}>
+                <Typography>
+                  <TypewriterCourse
+                    text="Courses With Certificates ⭐"
+                    delay={40}
+                    variant="h3"
+                    color="white"
+                    fontWeight="bolder"
+                  />
+                </Typography>
+              </Grid>
             </Grid>
+          </AboutSection>
+          <Grid container spacing={3} justifyContent={"center"}>
+            {courses.map(({ institution, course }, index) => (
+              <Grid size={{ xs: 12, sm: 6, md: 6 }} key={index}>
+                <Fade in={true} style={{ transitionDelay: `${index * 300}ms` }}>
+                  <CourseCard elevation={3}>
+                    <CardContent>
+                      <Typography
+                        variant="subtitle1"
+                        fontWeight={"bold"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        gap={1}
+                      >
+                        <SchoolIcon /> {institution}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        mt={1}
+                        display={"flex"}
+                        alignItems={"center"}
+                        gap={1}
+                      >
+                        <Description /> {course}
+                      </Typography>
+                    </CardContent>
+                  </CourseCard>
+                </Fade>
+              </Grid>
+            ))}
           </Grid>
-        </AboutSection>
-        <Grid container spacing={3} justifyContent={"center"}>
-          {courses.map(({ institution, course }, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 6 }} key={index}>
-              <Fade in={true} style={{ transitionDelay: `${index * 300}ms` }}>
-                <CourseCard elevation={3}>
-                  <CardContent>
-                    <Typography
-                      variant="subtitle1"
-                      fontWeight={"bold"}
-                      display={"flex"}
-                      alignItems={"center"}
-                      gap={1}
-                    >
-                      <SchoolIcon /> {institution}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      mt={1}
-                      display={"flex"}
-                      alignItems={"center"}
-                      gap={1}
-                    >
-                      <Description /> {course}
-                    </Typography>
-                  </CardContent>
-                </CourseCard>
-              </Fade>
-            </Grid>
-          ))}
-        </Grid>
+        </MotionBox>
       </Element>
     </>
   );
