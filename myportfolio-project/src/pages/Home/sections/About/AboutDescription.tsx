@@ -4,8 +4,12 @@ import { Box } from "@mui/system";
 // import { Element } from "react-scroll";
 
 const AboutSection = styled(Box)(({ theme }) => ({
-  marginBottom: theme.spacing(4),
+  marginBottom: theme.spacing(6),
   textAlign: "left",
+  padding: theme.spacing(3),
+  maxWidth: 800,
+  marginLeft: "auto",
+  marginRight: "auto",
 }));
 
 const AboutDescription: React.FC = () => {
