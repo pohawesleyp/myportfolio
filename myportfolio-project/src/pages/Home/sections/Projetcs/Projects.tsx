@@ -7,7 +7,11 @@ import {
   Grid,
   CardContent,
   Card,
+  Box,
 } from "@mui/material";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const StyledAbout = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
@@ -81,71 +85,78 @@ const Projects: React.FC = () => {
       <Element name="projects">
         <StyledAbout id="projects" tabIndex={-1} aria-labelledby="about-title">
           <Container maxWidth="lg">
-            <Typography
-              variant="h2"
-              textAlign={"center"}
-              fontStyle={"italic"}
-              fontWeight={"bolder"}
-              gutterBottom
-              paddingBottom={4}
-              paddingTop={4}
+            <MotionBox
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
             >
-              Projects 🚧
-            </Typography>
+              <Typography
+                variant="h2"
+                textAlign={"center"}
+                fontStyle={"italic"}
+                fontWeight={"bolder"}
+                gutterBottom
+                paddingBottom={4}
+                paddingTop={4}
+              >
+                Projects 🚧
+              </Typography>
 
-            <Grid container spacing={2} justifyContent={"center"}>
-              {project.map((project, index) => (
-                <Grid
-                  key={index}
-                  alignItems={"stretch"}
-                  size={{ xs: 12, sm: 6, md: 5 }}
-                  justifyContent={"space-between"}
-                >
-                  <StyledCardProjects>
-                    <CardContent>
-                      <Typography
-                        variant="h4"
-                        color="#ffffff"
-                        fontFamily={"-moz-initial"}
-                        fontWeight={"bold"}
-                      >
-                        {project.title}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        fontFamily={"cursive"}
-                        fontWeight={"bold"}
-                      >
-                        {project.description}
-                      </Typography>
-                      <Typography variant="subtitle1" fontWeight={"bold"}>
-                        {project.tech}
-                      </Typography>
-                      <Typography variant="body2" fontWeight={"bold"}>
-                        <a
-                          href={project.repository}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{
-                            color: "inherit",
-                            textDecoration: "underline",
-                          }}
+              <Grid container spacing={2} justifyContent={"center"}>
+                {project.map((project, index) => (
+                  <Grid
+                    key={index}
+                    alignItems={"stretch"}
+                    size={{ xs: 12, sm: 6, md: 5 }}
+                    justifyContent={"space-between"}
+                  >
+                    <StyledCardProjects>
+                      <CardContent>
+                        <Typography
+                          variant="h4"
+                          color="#ffffff"
+                          fontFamily={"-moz-initial"}
+                          fontWeight={"bold"}
                         >
-                          View Repository
-                        </a>
-                      </Typography>
-                      <Typography
-                        variant="h6"
-                        fontWeight={"bold"}
-                        color="white"
-                      >
-                        {project.status}
-                      </Typography>
-                    </CardContent>
-                  </StyledCardProjects>
-                </Grid>
-              ))}
-            </Grid>
+                          {project.title}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          fontFamily={"cursive"}
+                          fontWeight={"bold"}
+                        >
+                          {project.description}
+                        </Typography>
+                        <Typography variant="subtitle1" fontWeight={"bold"}>
+                          {project.tech}
+                        </Typography>
+                        <Typography variant="body2" fontWeight={"bold"}>
+                          <a
+                            href={project.repository}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              color: "inherit",
+                              textDecoration: "underline",
+                            }}
+                          >
+                            View Repository
+                          </a>
+                        </Typography>
+                        <Typography
+                          variant="h6"
+                          fontWeight={"bold"}
+                          color="white"
+                        >
+                          {project.status}
+                        </Typography>
+                      </CardContent>
+                    </StyledCardProjects>
+                  </Grid>
+                ))}
+              </Grid>
+            </MotionBox>
           </Container>
         </StyledAbout>
       </Element>
