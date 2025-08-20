@@ -10,6 +10,7 @@ import {
   Box,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import TypewriterCourse from "../../../../components/Typewriter/TypewriterCourse";
 
 const MotionBox = motion(Box);
 
@@ -85,25 +86,31 @@ const Projects: React.FC = () => {
       <Element name="projects">
         <StyledAbout id="projects" tabIndex={-1} aria-labelledby="about-title">
           <Container maxWidth="lg">
+            <Typography
+              textAlign={"center"}
+              fontStyle={"italic"}
+              //   fontWeight={"bolder"}
+              gutterBottom
+              paddingBottom={4}
+              paddingTop={4}
+            >
+              <TypewriterCourse
+                text="Projects 🚧"
+                variant="h2"
+                delay={40}
+                fontWeight="bold"
+                color="white"
+              />
+            </Typography>
+            <br />
+            <br />
             <MotionBox
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9 }}
             >
-              <Typography
-                variant="h2"
-                textAlign={"center"}
-                fontStyle={"italic"}
-                fontWeight={"bolder"}
-                gutterBottom
-                paddingBottom={4}
-                paddingTop={4}
-              >
-                Projects 🚧
-              </Typography>
-
-              <Grid container spacing={2} justifyContent={"center"}>
+              <Grid container spacing={3} justifyContent={"center"}>
                 {project.map((project, index) => (
                   <Grid
                     key={index}

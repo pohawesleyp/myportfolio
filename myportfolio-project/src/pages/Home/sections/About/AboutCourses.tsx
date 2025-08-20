@@ -53,31 +53,31 @@ const AboutCouses: React.FC = () => {
   return (
     <>
       <Element name="courses">
+        <AboutSection
+          id="courses"
+          tabIndex={-1}
+          aria-labelledby="courses-title"
+        >
+          <Grid container spacing={1} justifyContent={"center"}>
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography>
+                <TypewriterCourse
+                  text="Courses With Certificates ⭐"
+                  delay={40}
+                  variant="h3"
+                  color="white"
+                  fontWeight="bolder"
+                />
+              </Typography>
+            </Grid>
+          </Grid>
+        </AboutSection>
         <MotionBox
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
         >
-          <AboutSection
-            id="courses"
-            tabIndex={-1}
-            aria-labelledby="courses-title"
-          >
-            <Grid container spacing={1} justifyContent={"center"}>
-              <Grid size={{ xs: 12, md: 7 }}>
-                <Typography>
-                  <TypewriterCourse
-                    text="Courses With Certificates ⭐"
-                    delay={40}
-                    variant="h3"
-                    color="white"
-                    fontWeight="bolder"
-                  />
-                </Typography>
-              </Grid>
-            </Grid>
-          </AboutSection>
           <Grid container spacing={3} justifyContent={"center"}>
             {courses.map(({ institution, course }, index) => (
               <Grid size={{ xs: 12, sm: 6, md: 6 }} key={index}>

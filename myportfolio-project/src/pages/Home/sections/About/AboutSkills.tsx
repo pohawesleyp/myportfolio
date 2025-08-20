@@ -17,6 +17,7 @@ import {
 } from "@mui/icons-material";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
+import TypewriterCourse from "../../../../components/Typewriter/TypewriterCourse";
 
 const MotionBox = motion(Box);
 
@@ -79,16 +80,21 @@ const AboutSkills: React.FC = () => {
             >
               <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                 <Typography
-                  variant="h3"
                   textAlign={"center"}
                   fontStyle={"italic"}
-                  fontWeight={"bolder"}
                   gutterBottom
                   paddingBottom={4}
                   paddingTop={4}
                 >
-                  My Skills 🚀
+                  <TypewriterCourse
+                    text="My Skills 🚀"
+                    variant="h2"
+                    delay={40}
+                    fontWeight="bold"
+                    color="white"
+                  />
                 </Typography>
+                <br />
               </Grid>
             </MotionBox>
             <MotionBox
