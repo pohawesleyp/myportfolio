@@ -60,7 +60,7 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      <AppBar position="absolute">
+      <AppBar position="fixed">
         <StyledTooBar>
           <MenuItem
             sx={StyledIconNavBar}
@@ -71,16 +71,16 @@ const NavBar: React.FC = () => {
 
           <MenuItem
             sx={StyledIconNavBar}
-            onClick={() => scrollToSection("skills")}
+            onClick={() => scrollToSection("courses")}
           >
-            Skills
+            Courses
           </MenuItem>
 
           <MenuItem
             sx={StyledIconNavBar}
-            onClick={() => scrollToSection("courses")}
+            onClick={() => scrollToSection("skills")}
           >
-            Courses
+            Skills
           </MenuItem>
 
           <MenuItem
