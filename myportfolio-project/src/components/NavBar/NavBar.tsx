@@ -64,6 +64,13 @@ const NavBar: React.FC = () => {
         <StyledTooBar>
           <MenuItem
             sx={StyledIconNavBar}
+            onClick={() => scrollToSection("home")}
+          >
+            Home
+          </MenuItem>
+
+          <MenuItem
+            sx={StyledIconNavBar}
             onClick={() => scrollToSection("about")}
           >
             About
