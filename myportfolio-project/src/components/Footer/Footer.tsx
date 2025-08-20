@@ -94,6 +94,7 @@ const Footer: React.FC = () => {
                 fontSize: { xs: "0.75rem", sm: "0.875rem" },
               }}
               textTransform={"capitalize"}
+              aria-label="Wesley-Amaro"
             >
               © 2025 Wesley Amaro — All rights reserved.
             </Typography>

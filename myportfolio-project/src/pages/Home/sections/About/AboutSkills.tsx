@@ -70,7 +70,7 @@ const AboutSkills: React.FC = () => {
   return (
     <>
       <Element name="skills">
-        <StyledSkills id="skills" tabIndex={-1} aria-labelledby="about-title">
+        <StyledSkills id="skills" tabIndex={-1} aria-labelledby="about-skills">
           <Container maxWidth="lg">
             <MotionBox
               initial={{ opacity: 0, y: 50 }}
@@ -88,7 +88,7 @@ const AboutSkills: React.FC = () => {
                 >
                   <TypewriterCourse
                     text="My Skills 🚀"
-                    variant="h2"
+                    variant="h3"
                     delay={40}
                     fontWeight="bold"
                     color="white"

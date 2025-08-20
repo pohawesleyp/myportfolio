@@ -1,11 +1,17 @@
 import { styled, Grid } from "@mui/material";
+import React, { Suspense } from "react";
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
-import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
+// import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
 import AboutHeader from "./AboutHeader";
 import AboutCards from "./AboutCards";
 import AboutDescription from "./AboutDescription";
 import AboutCouses from "./AboutCourses";
+
+// Lazy load do AnimatedBackground
+const AnimatedBackground = React.lazy(
+  () => import("../../../../components/AnimatedBackground/AnimatedBackground")
+);
 
 const StyledAbout = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
@@ -24,7 +30,7 @@ const StyledAbout = styled("div")(({ theme }) => ({
 const AboutMain: React.FC = () => {
   return (
     <>
-      <StyledAbout>
+      <StyledAbout aria-labelledby="about-main">
         <Container maxWidth="lg">
           <br />
           <AboutHeader />
@@ -32,22 +38,25 @@ const AboutMain: React.FC = () => {
 
           <Grid size={{ xs: 12, md: 5 }}>
             <Box position="relative" pb={3}>
-              <Box
-                position="absolute"
-                width="46rem"
-                height={"100%"}
-                top={0}
-                left="80%"
-                sx={{
-                  zIndex: 0,
-                  transform: {
-                    xs: "translateX(calc(-13rem + -5vw))",
-                    md: "translateX(calc(1rem + 1vw))",
-                  },
-                }}
-              >
-                <AnimatedBackground />
-              </Box>
+              <Suspense fallback={<div />}>
+                <Box
+                  position="absolute"
+                  width={{ xs: "30rem", md: "46rem" }}
+                  height={"100%"}
+                  top={0}
+                  left={{ xs: "50%", md: "80%" }} // centraliza no mobile
+                  sx={{
+                    zIndex: 0,
+                    transform: {
+                      xs: "translateX(-50%)",
+                      md: "translateX(calc(1rem + 1vw))",
+                    },
+                    display: { xs: "block", md: "block" }, // pode esconder se quiser mobile
+                  }}
+                >
+                  <AnimatedBackground />
+                </Box>
+              </Suspense>
             </Box>
           </Grid>
 

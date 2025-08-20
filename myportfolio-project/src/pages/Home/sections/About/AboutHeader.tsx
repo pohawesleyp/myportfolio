@@ -22,7 +22,7 @@ const AboutHeader: React.FC = () => {
     <>
       <Element name="about">
         <AboutSectionHeader id="" tabIndex={-1} aria-labelledby="about-header">
-          <Typography variant="h2" fontStyle="italic" fontWeight="bold">
+          <Typography variant="h3" fontStyle="italic" fontWeight="bold">
             About Me 👨🏽‍💻
           </Typography>
         </AboutSectionHeader>

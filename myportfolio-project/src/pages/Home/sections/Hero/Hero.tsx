@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { styled, Typography, Box, Menu, MenuItem } from "@mui/material";
 import wesleyPerfil from "../../../../assets/images/wesley-perfil.jpg";
 // import Paper from "@mui/material/Paper";
@@ -8,7 +8,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import MailIcon from "@mui/icons-material/Mail";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ButtonRoot from "../../../../components/StyledButton/StyledButton";
-import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
 import Typewriter from "../../../../components/Typewriter/Typewriter";
 import { MarkEmailUnread } from "@mui/icons-material";
 import { Element } from "react-scroll";
@@ -22,20 +21,10 @@ const StyledHero = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   [theme.breakpoints.up("xs")]: {
-    // <= mobile
-    // backgroundColor: "#814ea3",
-    // display: "block",
-    // padding: "20px",
     paddingTop: "100px",
-    // paddingBottom: "40px",
   },
   [theme.breakpoints.up("md")]: {
-    // >= mobile
-    // backgroundColor: "#020336",
-    // display: "flex",
-    // alignItems: "center",
     paddingTop: "0",
-    // height: "100vh",
   },
 }));
 
@@ -50,6 +39,10 @@ const StyledImg = styled("img")(({ theme }) => ({
     marginTop: theme.spacing(6), // ajuste para telas intermediárias
   },
 }));
+
+const AnimatedBackground = React.lazy(
+  () => import("../../../../components/AnimatedBackground/AnimatedBackground")
+);
 
 const HERO_CV_PATH = "/resume.pdf";
 
@@ -90,7 +83,7 @@ const Hero: React.FC = () => {
   return (
     <>
       <Element name="home">
-        <StyledHero>
+        <StyledHero aria-labelledby="Home-Page">
           <Container maxWidth="lg">
             <Grid container spacing={2}>
               <Grid size={{ xs: 12, md: 5 }}>
@@ -108,14 +101,16 @@ const Hero: React.FC = () => {
                       right={0}
                       sx={{ zIndex: 0 }}
                     >
-                      <AnimatedBackground />
+                      <Suspense fallback={<div />}>
+                        <AnimatedBackground />
+                      </Suspense>
                     </Box>
                     <Box
                       textAlign="center"
                       position="relative"
                       sx={{ zIndex: 1 }}
                     >
-                      <StyledImg src={wesleyPerfil} />
+                      <StyledImg src={wesleyPerfil} alt="Wesley-Image" />
                     </Box>
                   </Box>
                 </MotionBox>
@@ -157,7 +152,7 @@ const Hero: React.FC = () => {
                     >
                       <ButtonRoot
                         onClick={handleDownloadCV}
-                        arial-label="Download CV"
+                        arial-label="Download-CV"
                       >
                         <DownloadIcon />
                         <Typography>Download CV</Typography>
@@ -174,6 +169,7 @@ const Hero: React.FC = () => {
                         arial-control={open ? "contact-menu" : undefined}
                         aria-haspopup="true"
                         aria-expaned={open ? "true" : undefined}
+                        arial-label="Contact-Me"
                       >
                         <MailIcon />
                         <Typography>Contact Me</Typography>

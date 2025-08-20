@@ -20,16 +20,16 @@ const AboutSection = styled(Box)(({ theme }) => ({
 const AboutDescription: React.FC = () => {
   return (
     <>
-      <MotionBox
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9 }}
-      >
-        <AboutSection id="" tabIndex={-1} aria-labelledby="about-title">
+      <AboutSection id="" tabIndex={-1} aria-labelledby="about-description">
+        <MotionBox
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+        >
           <Grid size={{ xs: 12, md: 7 }}>
             <Typography
-              variant="h6"
+              variant="h5"
               gutterBottom
               fontWeight="bold"
               fontSize={16}
@@ -131,8 +131,8 @@ const AboutDescription: React.FC = () => {
               </Link>
             </Typography>
           </Grid>
-        </AboutSection>
-      </MotionBox>
+        </MotionBox>
+      </AboutSection>
     </>
   );
 };
