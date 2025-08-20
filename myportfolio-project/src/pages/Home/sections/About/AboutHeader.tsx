@@ -9,6 +9,12 @@ const AboutSectionHeader = styled(Box)(({ theme }) => ({
   maxWidth: 800,
   marginLeft: "auto",
   marginRight: "auto",
+  [theme.breakpoints.down("sm")]: {
+    marginTop: theme.spacing(6), // aumenta espaço em telas pequenas
+  },
+  [theme.breakpoints.between("sm", "md")]: {
+    marginTop: theme.spacing(8), // ajuste para telas intermediárias
+  },
 }));
 
 const AboutHeader: React.FC = () => {

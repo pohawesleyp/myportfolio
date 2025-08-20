@@ -11,10 +11,14 @@ const StyledAbout = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
   minHeight: "100vh",
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
   color: theme.palette.primary.contrastText,
   overflow: "hidden",
-  maxWidth: "150%",
+  paddingBottom: "4rem", // adiciona espaço embaixo para o botão
+  [theme.breakpoints.down("sm")]: {
+    paddingBottom: "8rem", // mais espaço em telas pequenas
+  },
 }));
 
 const AboutMain: React.FC = () => {

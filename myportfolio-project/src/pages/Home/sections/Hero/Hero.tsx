@@ -42,6 +42,12 @@ const StyledImg = styled("img")(({ theme }) => ({
   width: "75%",
   borderRadius: "50%",
   border: `0.1rem solid ${theme.palette.primary.contrastText}`,
+  [theme.breakpoints.down("sm")]: {
+    marginTop: theme.spacing(5), // aumenta espaço em telas pequenas
+  },
+  [theme.breakpoints.between("sm", "md")]: {
+    marginTop: theme.spacing(6), // ajuste para telas intermediárias
+  },
 }));
 
 const HERO_CV_PATH = "/resume.pdf";
