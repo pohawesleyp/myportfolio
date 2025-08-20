@@ -13,10 +13,14 @@ import {
   TextField,
   Snackbar,
   Alert,
+  Box,
 } from "@mui/material";
 import { styled } from "@mui/material";
 // import theme from "../../theme";
 import Button from "@mui/material/Button";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const StyledForm = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.secondary.contrastText,
@@ -117,65 +121,72 @@ const ContactForm: React.FC = () => {
     <>
       <StyledForm id="contactForm" tabIndex={-1} aria-labelledby="form-contact">
         <Container maxWidth="sm">
-          <Card elevation={4}>
-            <CardHeader
-              avatar={<ContactPage color="primary" />}
-              title={
-                <Typography variant="h5" fontWeight={"bold"}>
-                  Contact Me
-                </Typography>
-              }
-              subheader="Fill in the fields below to send me a message"
-            />
-            <CardContent>
-              <form onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
-                  <Grid size={{ xs: 12 }}>
-                    <TextField
-                      fullWidth
-                      label="Name"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      disabled={loading}
-                      required
-                    />
+          <MotionBox
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+          >
+            <Card elevation={4}>
+              <CardHeader
+                avatar={<ContactPage color="primary" />}
+                title={
+                  <Typography variant="h5" fontWeight={"bold"}>
+                    Contact Me
+                  </Typography>
+                }
+                subheader="Fill in the fields below to send me a message"
+              />
+              <CardContent>
+                <form onSubmit={handleSubmit}>
+                  <Grid container spacing={3}>
+                    <Grid size={{ xs: 12 }}>
+                      <TextField
+                        fullWidth
+                        label="Name"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        disabled={loading}
+                        required
+                      />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <TextField
+                        fullWidth
+                        type="email"
+                        label="E-mail"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        disabled={loading}
+                        required
+                      />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <TextField
+                        fullWidth
+                        label="Message"
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        disabled={loading}
+                        required
+                        multiline
+                        minRows={4}
+                      />
+                    </Grid>
                   </Grid>
-                  <Grid size={{ xs: 12 }}>
-                    <TextField
-                      fullWidth
-                      type="email"
-                      label="E-mail"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      disabled={loading}
-                      required
-                    />
-                  </Grid>
-                  <Grid size={{ xs: 12 }}>
-                    <TextField
-                      fullWidth
-                      label="Message"
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      disabled={loading}
-                      required
-                      multiline
-                      minRows={4}
-                    />
-                  </Grid>
-                </Grid>
-                <CardActions sx={{ justifyContent: "flex-end", mt: 2 }}>
-                  <Button type="submit" variant="contained" loading={loading}>
-                    Enviar
-                  </Button>
-                </CardActions>
-                <ContactPage />
-              </form>
-            </CardContent>
-          </Card>
+                  <CardActions sx={{ justifyContent: "flex-end", mt: 2 }}>
+                    <Button type="submit" variant="contained" loading={loading}>
+                      Enviar
+                    </Button>
+                  </CardActions>
+                  <ContactPage />
+                </form>
+              </CardContent>
+            </Card>
+          </MotionBox>
         </Container>
 
         {status && (
