@@ -65,6 +65,8 @@ const ContactForm: React.FC = () => {
 
   const handleCloseSnackbar = () => setOpenSnackbar(false);
 
+  const [snackbarMessage, setSnackbarMessage] = React.useState("");
+
   // Atualizando os campos do Form
 
   const handleChange = (
@@ -82,12 +84,29 @@ const ContactForm: React.FC = () => {
 
     if (!form.name || !form.email || !form.message) {
       setStatus("error");
+      setSnackbarMessage("Por favor, preencha todos os campos.");
+      setOpenSnackbar(true);
+      return;
+    }
+
+    // Checa tamanho mínimo dos campos
+    if (form.name.length < 3) {
+      setStatus("error");
+      setSnackbarMessage("O nome deve ter pelo menos 3 caracteres.");
+      setOpenSnackbar(true);
+      return;
+    }
+
+    if (form.message.length < 5) {
+      setStatus("error");
+      setSnackbarMessage("A mensagem deve ter pelo menos 5 caracteres.");
       setOpenSnackbar(true);
       return;
     }
 
     if (!isValidEmail(form.email)) {
       setStatus("error");
+      setSnackbarMessage("Por favor, insira um e-mail válido.");
       setOpenSnackbar(true);
       return;
     }
@@ -102,10 +121,14 @@ const ContactForm: React.FC = () => {
 
       if (response.status === 200) {
         setStatus("success");
+        setSnackbarMessage("Mensagem enviada com sucesso! 🎉");
         setOpenSnackbar(true);
         setform({ name: "", email: "", message: "" });
       } else {
         setStatus("error");
+        setSnackbarMessage(
+          "Ocorreu um erro ao enviar a mensagem. Tente novamente."
+        );
         setOpenSnackbar(true);
       }
     } catch (error) {
@@ -194,17 +217,15 @@ const ContactForm: React.FC = () => {
             open={openSnackbar}
             autoHideDuration={4000}
             onClose={handleCloseSnackbar}
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
           >
             <Alert
               onClose={handleCloseSnackbar}
-              severity={status}
+              severity={status === "success" ? "success" : "error"}
               variant="filled"
               sx={{ width: "100%" }}
             >
-              {status === "success"
-                ? "Message sent successfully!🎉"
-                : "An error occurred while sending. Please try again."}
+              {snackbarMessage}
             </Alert>
           </Snackbar>
         )}
