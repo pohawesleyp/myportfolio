@@ -49,9 +49,9 @@ const StyledCardSkill = styled(Card)(({ theme }) => ({
   padding: "0.6rem 0.5rem",
   textAlign: "center",
   marginBottom: theme.spacing(4),
-
+  borderRadius: "1rem",
   backgroundColor: theme.palette.primary.light,
-  color: theme.palette.secondary.light,
+  color: "white",
 
   maxWidth: 800,
   marginLeft: "auto",
@@ -59,10 +59,10 @@ const StyledCardSkill = styled(Card)(({ theme }) => ({
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
     color: theme.palette.primary.light,
-    borderRadius: "1rem",
+    borderRadius: "2rem",
     zIndex: 10,
-    transform: "perspective(1000px) rotateY(10deg) rotateX(10deg) scale(1.05)",
-    boxShadow: "0 20px 40px rgba(12, 22, 103, 0.3)",
+    transform: "perspective(1000px) rotateY(10deg) rotateX(10deg) scale(1.05) ",
+    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.653)",
   },
 }));
 
