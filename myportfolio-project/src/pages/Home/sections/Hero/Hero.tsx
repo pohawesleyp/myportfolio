@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { styled, Typography, Box, Menu, MenuItem } from "@mui/material";
 import wesleyPerfil from "../../../../assets/images/wesley-perfil.jpg";
-// import Paper from "@mui/material/Paper";
+
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
 import DownloadIcon from "@mui/icons-material/Download";
