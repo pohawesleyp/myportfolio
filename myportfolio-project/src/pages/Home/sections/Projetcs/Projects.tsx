@@ -1,5 +1,4 @@
 import { Element } from "react-scroll";
-
 import {
   Container,
   styled,
@@ -25,7 +24,7 @@ const StyledCardProjects = styled(Card)(({ theme }) => ({
   height: "100%",
   padding: "0.6rem 0.6rem",
   textAlign: "center",
-  // marginBottom: "0.6rem",
+
   flexDirection: "column",
   borderRadius: "2rem",
   backgroundColor: theme.palette.secondary.light,
@@ -36,7 +35,7 @@ const StyledCardProjects = styled(Card)(({ theme }) => ({
     transform: "scale(1.1)",
     borderRadius: "1.4rem",
     zIndex: 10,
-    // transform: "perspective(1000px) rotateY(10deg) rotateX(10deg) scale(1.05)",
+
     boxShadow: "0 20px 40px rgba(215, 216, 227, 0.3)",
   },
 }));
@@ -55,28 +54,28 @@ const project = [
       "GitHub's responsive design, transforming your page into a Portfolio",
     tech: "Technology: HTML, CSS, JavScript",
     repository: "https://github.com/pohawesleyp/pohawesleyp",
-    status: "Finished",
+    status: "Status: Finished",
   },
   {
     title: "'To-Do List'",
     description: "Responsive To-Do List in React + Tailwind",
     tech: "Technology: React, JavaScript, CSS",
     repository: "https://github.com/pohawesleyp/listaDeTarefas-react-tailwind",
-    status: "Finished",
+    status: "Status: Finished",
   },
   {
     title: "'Google Glas WebSite'",
     description: "Google site in HTML, CSS and pure JavaScript",
     tech: "Technology: HTML, CSS, JavaScript",
     repository: "https://github.com/pohawesleyp/projeto-aula-google-glass",
-    status: "Finished",
+    status: "Status: Finished",
   },
   {
     title: "'My Portfolio'",
     description: "Responsive website in React + TS with animations and deploy",
     tech: "Technology: React, TypeScript, Material Ui",
     repository: "https://github.com/pohawesleyp/myportfolio",
-    status: "Finished",
+    status: "Status: Finished",
   },
 ];
 
@@ -89,14 +88,13 @@ const Projects: React.FC = () => {
             <Typography
               textAlign={"center"}
               fontStyle={"italic"}
-              //   fontWeight={"bolder"}
               gutterBottom
               paddingBottom={4}
               paddingTop={4}
             >
               <TypewriterCourse
                 text="Projects 🚧"
-                variant="h2"
+                variant="h3"
                 delay={40}
                 fontWeight="bold"
                 color="white"
@@ -121,8 +119,8 @@ const Projects: React.FC = () => {
                     <StyledCardProjects>
                       <CardContent>
                         <Typography
-                          variant="h4"
-                          color="#ffffff"
+                          variant="h6"
+                          color="theme.palette.primary.light"
                           fontFamily={"-moz-initial"}
                           fontWeight={"bold"}
                         >
@@ -152,9 +150,19 @@ const Projects: React.FC = () => {
                           </a>
                         </Typography>
                         <Typography
-                          variant="h6"
+                          variant="subtitle2"
                           fontWeight={"bold"}
-                          color="white"
+                          color="theme.palette.primary.light"
+                          sx={{
+                            p: 0.5, // padding opcional pra hover não ficar estranho
+                            borderRadius: 4, // borda arredondada no hover (opcional)
+                            cursor: "pointer", // mostra que é interativo
+                            transition: "background-color 0.3s ease", // suaviza a transição
+                            "&:hover": {
+                              color: "white",
+                              backgroundColor: "secondary.light", // muda o fundo no hover
+                            },
+                          }}
                         >
                           {project.status}
                         </Typography>
