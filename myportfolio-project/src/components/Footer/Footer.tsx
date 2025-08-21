@@ -12,6 +12,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import theme from "../../theme";
 import { WhatsApp } from "@mui/icons-material";
 import { motion } from "framer-motion";
+import React from "react";
 
 const MotionBox = motion(Box);
 

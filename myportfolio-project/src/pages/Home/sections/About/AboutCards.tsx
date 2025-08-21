@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SchoolIcon from "@mui/icons-material/School";
 import { motion } from "framer-motion";
+import React from "react";
 
 const MotionBox = motion(Box);
 

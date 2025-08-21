@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import type { TypographyProps } from "@mui/material";
+import React from "react";
 
 interface TypewriterProps {
   text: string;

@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { Element } from "react-scroll";
 import { styled } from "@mui/material";
+import React from "react";
 
 const AboutSectionHeader = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(4),

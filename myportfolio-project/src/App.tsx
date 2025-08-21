@@ -9,7 +9,6 @@ import AboutHeader from "./pages/Home/sections/About/AboutHeader";
 import AboutSkills from "./pages/Home/sections/About/AboutSkills";
 import Hero from "./pages/Home/sections/Hero/Hero";
 import Projects from "./pages/Home/sections/Projetcs/Projects";
-
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

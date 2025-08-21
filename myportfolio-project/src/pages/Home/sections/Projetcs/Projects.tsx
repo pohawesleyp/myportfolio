@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import TypewriterCourse from "../../../../components/Typewriter/TypewriterCourse";
+import React from "react";
 
 const MotionBox = motion(Box);
 

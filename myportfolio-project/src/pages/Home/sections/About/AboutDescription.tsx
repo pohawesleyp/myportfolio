@@ -2,8 +2,13 @@ import { styled, Grid, Link } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { motion } from "framer-motion";
+import React, { Suspense } from "react";
 
 const MotionBox = motion(Box);
+
+const AnimatedBackground = React.lazy(
+  () => import("../../../../components/AnimatedBackground/AnimatedBackground")
+);
 
 const AboutSection = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(6),
@@ -54,6 +59,24 @@ const AboutDescription: React.FC = () => {
             <Typography variant="subtitle1" fontWeight={"bold"} gutterBottom>
               Experiência Profissional ⚡
             </Typography>
+            <Box position="relative" pb={3}>
+              <Box
+                position="absolute"
+                minWidth={"80%"}
+                top={-100}
+                right={0}
+                sx={{
+                  zIndex: 0,
+                  filter: "blur(0.1rem)", // dá um leve desfoque
+                  top: { xs: -50, sm: -80, md: -100 }, // top ajusta conforme a tela
+                  right: 0,
+                }}
+              >
+                <Suspense fallback={<div />}>
+                  <AnimatedBackground />
+                </Suspense>
+              </Box>
+            </Box>
 
             <Typography
               variant="body1"
@@ -71,6 +94,7 @@ const AboutDescription: React.FC = () => {
               Excel, PowerPoint, Teams, 3CX, AnyDesk, além do suporte a
               softwares e hardwares utilizados internamente pela empresa.
             </Typography>
+
             <br />
             <Typography variant="subtitle1" fontWeight={"bold"} gutterBottom>
               Formação 💻

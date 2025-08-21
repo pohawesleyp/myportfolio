@@ -18,6 +18,7 @@ import {
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import TypewriterCourse from "../../../../components/Typewriter/TypewriterCourse";
+import React from "react";
 
 const MotionBox = motion(Box);
 
@@ -85,6 +86,7 @@ const AboutSkills: React.FC = () => {
                   gutterBottom
                   paddingBottom={4}
                   paddingTop={4}
+                  component={"div"}
                 >
                   <TypewriterCourse
                     text="My Skills 🚀"

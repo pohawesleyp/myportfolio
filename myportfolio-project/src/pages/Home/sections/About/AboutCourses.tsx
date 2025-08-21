@@ -6,6 +6,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import { Description } from "@mui/icons-material";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
+import React from "react";
 
 const MotionBox = motion(Box);
 
@@ -74,7 +75,7 @@ const AboutCouses: React.FC = () => {
         >
           <Grid container spacing={1} justifyContent={"center"}>
             <Grid size={{ xs: 12, md: 7 }}>
-              <Typography>
+              <Typography component={"div"}>
                 <TypewriterCourse
                   text="Courses With Certificates ⭐"
                   delay={40}

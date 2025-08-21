@@ -1,10 +1,10 @@
 import { AppBar, MenuItem, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
 import theme from "../../theme";
-// import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
+import React from "react";
 
 const StyledTooBar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -46,17 +46,6 @@ const NavBar: React.FC = () => {
       });
     }, 100);
   };
-
-  // const prefersReducedMotion =
-  //   typeof window !== "undefined" &&
-  //   window.matchMedia &&
-  //   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // const handleSetActive = (name: string) => {
-  //   // quando o link vira ativo, dá foco na seção (acessibilidade)
-  //   const el = document.getElementById(name);
-  //   if (el) el.focus({ preventScroll: true });
-  // };
 
   return (
     <>
