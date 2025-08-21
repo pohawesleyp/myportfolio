@@ -30,13 +30,16 @@ const StyledCardProjects = styled(Card)(({ theme }) => ({
   borderRadius: "2rem",
   backgroundColor: theme.palette.secondary.light,
   color: theme.palette.primary.light,
+
+  WebkitTransition: "transform 0.3s ease, box-shadow 0.3s ease",
+  MozTransition: "transform 0.3s ease, box-shadow 0.3s ease",
+  transition: "transform 0.3s ease 0.3s ease-out, box-shadow 0.3s ease",
   "&:hover": {
+    transform: "perspective(1000px) rotateY(10deg) rotateX(10deg) scale(1.05)",
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.secondary.light,
-    transform: "scale(1.1)",
-    borderRadius: "1.4rem",
+    borderRadius: "2.5rem",
     zIndex: 10,
-
     boxShadow: "0 20px 40px rgba(215, 216, 227, 0.3)",
   },
 }));

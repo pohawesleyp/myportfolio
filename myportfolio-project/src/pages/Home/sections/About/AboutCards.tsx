@@ -16,6 +16,9 @@ const StyledCard = styled(Card)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   color: theme.palette.secondary.light,
   borderRadius: "1.5rem",
+  WebkitTransition: "transform 0.3s ease, box-shadow 0.3s ease",
+  MozTransition: "transform 0.3s ease, box-shadow 0.3s ease",
+  transition: "transform 0.3s ease 0.3s ease-out, box-shadow 0.3s ease",
 
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
