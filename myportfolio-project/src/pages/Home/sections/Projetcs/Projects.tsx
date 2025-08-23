@@ -125,14 +125,14 @@ const Projects: React.FC = () => {
                         <Typography
                           variant="h6"
                           color="theme.palette.primary.light"
-                          fontFamily={"-moz-initial"}
+                          fontFamily={""}
                           fontWeight={"bold"}
                         >
                           {project.title}
                         </Typography>
                         <Typography
                           variant="body1"
-                          fontFamily={"cursive"}
+                          fontFamily={""}
                           fontWeight={"bold"}
                         >
                           {project.description}
