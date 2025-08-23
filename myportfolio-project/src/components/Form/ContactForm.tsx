@@ -145,7 +145,7 @@ const ContactForm: React.FC = () => {
         <Container maxWidth="sm">
           <MotionBox
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9 }}
           >
@@ -157,7 +157,7 @@ const ContactForm: React.FC = () => {
                     Contact Me
                   </Typography>
                 }
-                subheader="Fill in the fields below to send me a message"
+                subheader="Fill in the fields below to send me a message. If the form does not appear, reload the page."
               />
               <CardContent>
                 <form onSubmit={handleSubmit}>

@@ -85,7 +85,12 @@ const NavBar: React.FC = () => {
           >
             Projects
           </MenuItem>
-          <MenuItem component={RouterLink} to="/contact" sx={StyledIconNavBar}>
+          <MenuItem
+            component={RouterLink}
+            to="/contact"
+            onClick={() => {}}
+            sx={StyledIconNavBar}
+          >
             Contact Form
           </MenuItem>
         </StyledTooBar>
